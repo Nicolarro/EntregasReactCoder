@@ -1,38 +1,47 @@
-.App {
-  text-align: center;
+body {
+  background-color: bisque;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* OPERADORES */
+/* DEL HEADER */
+#main-header {
+  background-color: #CCD5AE;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0rem;
 }
 
-.App-link {
-  color: #61dafb;
+#main-header .header--logo {
+  border-style: none;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  margin-left: 1rem;
+  background-color: #CCD5AE;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header--color {
+  background-color: #CCD5AE;
+  text-decoration: none;
 }
+
+p {
+  font-size: 1.5rem;
+}
+
+.estiloCarrito {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 2rem;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+/*# sourceMappingURL=App.css.map */

@@ -1,0 +1,40 @@
+body {
+    background-color: bisque
+    }
+
+/* OPERADORES */
+
+$color1: #CCD5AE;
+$color2:#6b705c;
+$color3:#d5d5d5;
+
+/* DEL HEADER */
+#main-header{
+    background-color: #CCD5AE;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0rem;
+    .header--logo{
+      border-style: none;
+      flex-grow: 0;
+      margin-left: 1rem;
+      background-color:  $color1;
+    }
+  }
+
+.header--color{
+    background-color:  #CCD5AE;
+    text-decoration: none;
+        }
+
+p{
+  font-size: 1.5rem;
+}
+
+.estiloCarrito {
+  display: flex;
+  margin-right: 2rem;
+  align-self: center
+
+}
