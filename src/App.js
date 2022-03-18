@@ -7,10 +7,12 @@ import ItemListContainer from "./componentes/header/ItemListContainer";
 
 function App() {
 
+const greeting = "Este es el container"
+
   return (
     <div>
       <Navbar/>
-      <ItemListContainer/>
+      <ItemListContainer greeting= {greeting} />
      <br/>
      <main> ECOMMERCE</main>
 
