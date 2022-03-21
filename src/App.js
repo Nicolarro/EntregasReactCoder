@@ -5,7 +5,7 @@ import Navbar from "./componentes/header/Navbar";
 import ItemListContainer from "./componentes/header/ItemListContainer";
 import ItemCount from "./componentes/ItemCount";
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 
 function App() {
