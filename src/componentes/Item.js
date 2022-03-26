@@ -1,23 +1,23 @@
-import React from 'react'
-import ItemList from "../componentes/ItemList"
-/* import {} from  */
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import ItemList from "../componentes/ItemList";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
-
-const Item = ({listadoProductos}) => {
-
-
+const Item = ({ producto }) => {
 
   return (
-
-  
-<div className="card">
-  <img src={listadoProductos.img} className="card-img-top" alt={listadoProductos.name}/>
-  <div className="card-body">
-        <p className="card-text">{listadoProductos.name}</p>
-    </div>
-</div>
-
-);
-}
+    
+    <Card style={{ width: "18rem" }}>
+      <Card.Img variant="top" src={producto.pictureUrl} />
+      <Card.Body>
+        <Card.Title> Producto: {producto.title}</Card.Title>
+        <Card.Text> Precio: {producto.price}</Card.Text>
+        <Button variant="primary">Ver Detalle</Button>
+      </Card.Body>
+    </Card>
+  );
+};
 
 export default Item;
+

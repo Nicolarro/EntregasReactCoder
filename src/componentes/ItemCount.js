@@ -47,7 +47,7 @@ const ItemCount = ({stock, initial, onAdd}) =>{
                     <button onClick={sumar}> SUMAR</button>
                     <ToastContainer />
                     <button onClick={restar}> RESTAR</button>
-                    <ToastContainer />
+{                    <ToastContainer />}
                     <button onClick={resetear}> RESETEAR</button>
                     <button onClick={agregarProducto}> AGREGAR AL CARRITO</button>
                     <br/>   

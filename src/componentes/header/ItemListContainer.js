@@ -27,7 +27,6 @@ const ItemListContainer = (props) => {
         
         <br/>
         <h2> {greeting}</h2>
-        <ToastContainer/>  
          <ItemList listado = {listadoProductos}/>
 
         </div>

@@ -12,7 +12,7 @@ $color3:#d5d5d5;
 #main-header{
     background-color: #CCD5AE;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex;
     align-items: center;
     margin: 0rem;
     .header--logo{
@@ -21,6 +21,7 @@ $color3:#d5d5d5;
       margin-left: 1rem;
       background-color:  $color1;
     }
+    
   }
 
 .header--color{
@@ -37,4 +38,10 @@ p{
   margin-right: 2rem;
   align-self: center
 
+}
+
+.titulo{
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
 }

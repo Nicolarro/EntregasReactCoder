@@ -8,13 +8,13 @@ const ItemList = ({listado}) =>{
 
     return(
     
-            <ul>
+            <>
                     {listado.map((producto)=>(
     
-            <Item key={producto.id} precio= {producto.precio} producto= {producto}/> 
+            <Item key={producto.id} precio= {producto.price} producto= {producto}/> 
            
                     ))}
-            </ul>   
+            </>   
     
     )
     }

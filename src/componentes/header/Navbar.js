@@ -4,7 +4,9 @@ import CardWidget from "./CardWidget";
 /* import { BsFillCartFill } from "react-icons/bs";  ME DIO ERROR LA INSTALACION DE REACT-ICONS*/
 
 const Navbar = (props) => {
+  
   return (
+    
     <header id="main-header">
       <nav className="navbar navbar-expand-lg navbar-light header--color">
         <a className="navbar-brand" href="index.html">
@@ -38,7 +40,7 @@ const Navbar = (props) => {
               HOME
             </a>
           </li>
-          <li className="nav-item">
+          <ul className="nav-item">
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle header--color"
@@ -54,12 +56,12 @@ const Navbar = (props) => {
                 className="dropdown-menu header--color"
                 aria-labelledby="navbarScrollingDropdown"
               >
-                <li>
+            <li>
                   <a className="dropdown-item header--color" href="#">
                     Suave
                   </a>
-                </li>
-                <li>
+                  </li>
+               <li>
                   <a className="dropdown-item header--color" href="#">
                     Espresso
                   </a>
@@ -71,7 +73,7 @@ const Navbar = (props) => {
                 </li>
               </ul>
             </li>
-          </li>
+          </ul>
           <li className="nav-item">
             <a className="nav-link header--color" href="#">
               CONTACTO
@@ -79,7 +81,7 @@ const Navbar = (props) => {
           </li>
         </ul>
 
-          <CardWidget />
+        <CardWidget />
       </nav>
     </header>
   );

@@ -5,6 +5,8 @@ import ItemListContainer from "./componentes/header/ItemListContainer";
 import ItemCount from "./componentes/ItemCount";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+/* import {BrowserRouter, Routes, Route} from "react-router-dom"; */
+
 
 
 function App() {
@@ -18,9 +20,12 @@ function App() {
   };
 
   return (
+
+
     <div>
       <Navbar />
-      <main> ECOMMERCE TIENDA CAFE</main>
+      <br />
+      <main className="titulo"> ECOMMERCE TIENDA CAFE</main>
       <ItemListContainer greeting={greeting} />
       <br />
       <br />
