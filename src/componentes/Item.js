@@ -1,10 +1,13 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ItemList from "../componentes/ItemList";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { useParams } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Item = ({ producto }) => {
+
+const {id} = useParams()
 
   return (
     
@@ -13,7 +16,7 @@ const Item = ({ producto }) => {
       <Card.Body>
         <Card.Title> Producto: {producto.title}</Card.Title>
         <Card.Text> Precio: {producto.price}</Card.Text>
-        <Button variant="primary">Ver Detalle</Button>
+       <Link to={`/item/${id}`}><Button variant="primary">Ver Detalle</Button> </Link>
       </Card.Body>
     </Card>
   );

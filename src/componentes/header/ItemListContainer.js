@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {React, useEffect, useState} from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import ItemList from "../ItemList.js"
-import {getProducts} from "../fakeApi.js"
+import ItemList from "../ItemList.js";
+import {getProducts} from "../fakeApi.js";
 
 const ItemListContainer = (props) => {
 
@@ -27,7 +27,7 @@ const ItemListContainer = (props) => {
         
         <br/>
         <h2> {greeting}</h2>
-         <ItemList listado = {listadoProductos}/>
+         {cargando ?  <h2> Loading....</h2> : <ItemList listado = {listadoProductos}/>}
 
         </div>
 
