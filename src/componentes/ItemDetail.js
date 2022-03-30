@@ -5,7 +5,7 @@ import {useNavigate } from "react-router-dom";
 
 const ItemDetail = ({detalle}) => {
 
-    const {title, price, pictureUrl} = detalle
+ /*    const {title, price, pictureUrl} = detalle */
 
     const navigate = useNavigate()
 
@@ -19,9 +19,9 @@ const ItemDetail = ({detalle}) => {
 
         <div>
             <h2>PRODUCTO</h2>
-            <h3>{title}</h3>
-            <img src={pictureUrl} alt={title} height = "50px" width = "50px" border="0"/> 
-            <p>Precio:{price}</p>
+            <h3>{detalle.title}</h3>
+            <img src={detalle.pictureUrl} alt={detalle.title} height = "50px" width = "50px" border="0"/> 
+            <p>Precio:{detalle.price}</p>
             <button onClick={handleNavigate}>Volver </button>  
 
         </div>

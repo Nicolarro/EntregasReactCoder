@@ -4,27 +4,31 @@ import { ToastContainer, toast } from 'react-toastify';
 import ItemList from "../ItemList.js";
 import { useParams } from 'react-router-dom';
 import {getProducts} from "../fakeApi.js";
+import {listadoProductos} from "../fakeApi.js";
 
 const ItemListContainer = (props) => {
 
+
     const {greeting} = props
 
-   
+    const {categoria} = useParams()
 
-    const{categoria} = useParams()
+    console.log(listadoProductos.categoria)
 
-    const [listadoProductos, setListaProductos] = useState([])
+    const [listado, setlistado] = useState([])
     const [cargando, setCargando] = useState(false)
 
-
+console.log(listado)
 
     useEffect(()=>{
         setCargando(true)
         getProducts
-        .then((res) => setListaProductos(res.filter((prod) => listadoProductos.categoria === categoria)))
+        .then((res) => setlistado(res.filter((prod) => prod.categoria === categoria)))
         .catch((error) => console.log(error))
         .finally(()=> setCargando(false))
     }, [categoria])
+
+
 
     return(
 
@@ -32,7 +36,7 @@ const ItemListContainer = (props) => {
         
         <br/>
         <h2> {greeting}</h2>
-         {cargando ?  <h2> Loading....</h2> : <ItemList listado = {listadoProductos}/>}
+         {cargando ?  <h2> Loading....</h2> : <ItemList listado = {listado}/>}
 
         </div>
 

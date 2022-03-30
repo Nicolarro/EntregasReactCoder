@@ -1,4 +1,4 @@
-const listadoProductos = [
+export const listadoProductos = [
   {
     id: '1',
     title: "SELECCION",

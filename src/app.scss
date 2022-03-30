@@ -14,15 +14,15 @@ $color3:#d5d5d5;
     display: flex;
     justify-content: flex;
     align-items: center;
-    margin: 0rem;
+    margin: 1rem;
     .header--logo{
       border-style: none;
       flex-grow: 0;
-      margin-left: 1rem;
+      margin: 1rem;
       background-color:  $color1;
       .NavBar--estilo{
         text-decoration: none;
-        
+
       }
     }
     
