@@ -26,7 +26,7 @@ useEffect(()=>{
 return (
 
 <Container >    
-
+<br />
 {loading ? <h2>Loading...</h2> : <ItemDetail prod = {prod} />}
 
 </Container>
