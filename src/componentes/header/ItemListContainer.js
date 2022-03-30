@@ -4,14 +4,13 @@ import { ToastContainer, toast } from "react-toastify";
 import ItemList from "../ItemList.js";
 import { useParams } from "react-router-dom";
 import { getProducts } from "../fakeApi.js";
-import { listadoProductos } from "../fakeApi.js";
+
 
 const ItemListContainer = (props) => {
 
   const { greeting } = props;
 
-  const { id } = useParams();
-
+  const { categoria } = useParams();
 
   const [listaProductos, setListaProductos] = useState([]);
   const [cargando, setCargando] = useState(false);
@@ -21,15 +20,15 @@ const ItemListContainer = (props) => {
     setCargando(true);
     getProducts
       .then((res) =>{
-      if (id){
-      setListaProductos(res.filter((item) => item.id === id))
+      if (categoria){                                            /* esta categoria es la del param */
+      setListaProductos(res.filter((item) => item.categoria === categoria)) 
       } else {
         setListaProductos(res)
       }
     })
       .catch((error) => toast.error("Error al cargar los productos"))
       .finally(() => setCargando(false));
-  }, [id]);
+  }, [categoria]);
 
   return (
     <div>

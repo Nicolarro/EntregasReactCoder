@@ -21,17 +21,21 @@ function App() {
   const links = [
     { href: "/", name: "HOME", id: 1 },
     { href: "/productos", name: "PRODUCTOS", id: 2 },
-    { href: "/categoria/clasicos", name: "CLASICOS", categoria: "Clasicos",id: 3 },
-    { href: "/categoria/premium", name: "PREMIUM",categoria: "Premium", id: 4 },
+    { href: "/categoria/clasicos", name: "CLASICOS",id: 3 },
+    { href: "/categoria/premium", name: "PREMIUM", id: 4 },
   ];
 
   return (
     <BrowserRouter>
       <Navbar links={links} />
-      {/*       <main className="titulo"> ECOMMERCE TIENDA CAFE</main> */}
+        <main className="titulo"> ECOMMERCE TIENDA CAFE</main>
       <Routes>
         <Route
           path="/"
+          element={<ItemListContainer greeting={greeting} />}
+        />
+         <Route
+          path="/productos"
           element={<ItemListContainer greeting={greeting} />}
         />
         <Route
