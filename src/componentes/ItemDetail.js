@@ -22,7 +22,7 @@ const ItemDetail = ({detalle}) => {
             <h3>{title}</h3>
             <img src={pictureUrl} alt={title} height = "50px" width = "50px" border="0"/> 
             <p>Precio:{price}</p>
-            <button onclick={handleNavigate}>Volver </button>  
+            <button onClick={handleNavigate}>Volver </button>  
 
         </div>
 

@@ -18,7 +18,7 @@ const [loading,setLoading] = useState(false)
 useEffect(()=>{
     setLoading(true)
     getProducts
-    .then((res) => setProd(res.find((item) => item.id === parseInt(id))))
+    .then((res) => setProd(res.find((prod) => prod.id === parseInt(id))))
     .catch((error) => console.log(error))
     .finally(() => setLoading(false))
 }, [id])

@@ -9,7 +9,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-
 function App() {
   const greeting = "Bienvendidos a Tienda Cafe";
 
@@ -19,29 +18,34 @@ function App() {
     toast(contador + " PRODUCTOS AGREGADOS AL CARRITO");
   };
 
-  const links= [
-    {href:"/", name:"HOME",id:1}, 
-    {href:"/productos", name:"PRODUCTOS",id:2}, 
-    {href:"/categoria/1", name:"CATEGORIA",id:3}, 
-    {href:"/categoria/2", name:"CATEGORIA",id:4},
-    {href:"/carrito", name:"CARRITO",id:5}
-]
-
+  const links = [
+    { href: "/", name: "HOME", id: 1 },
+    { href: "/productos", name: "PRODUCTOS", id: 2 },
+    { href: "/categoria/clasicos", name: "CLASICOS", categoria: "Clasicos",id: 3 },
+    { href: "/categoria/premium", name: "PREMIUM",categoria: "Premium", id: 4 },
+  ];
 
   return (
     <BrowserRouter>
-
-      <Navbar links={links}/>
-{/*       <main className="titulo"> ECOMMERCE TIENDA CAFE</main> */}
+      <Navbar links={links} />
+      {/*       <main className="titulo"> ECOMMERCE TIENDA CAFE</main> */}
       <Routes>
-          <Route path="/home" element={<ItemListContainer greeting={greeting} />}/>
-          <Route path= "/categoria/:id" element={<ItemListContainer greeting={greeting} />}/>
-          <Route path="item/:id/" element={<ItemDetailContainer/>}/>
-          <Route path="/carrito" element ={ <ItemCount initial={initial} stock={stock} onAdd={onAdd} />}/>
-          <Route path="*" element={ <Navigate to="/"/> }/>
-        </Routes>
-        </BrowserRouter>
-      
+        <Route
+          path="/"
+          element={<ItemListContainer greeting={greeting} />}
+        />
+        <Route
+          path="/categoria/:categoria/"
+          element={<ItemListContainer greeting={greeting} />}
+        />
+        <Route path="item/:id/" element={<ItemDetailContainer />} />
+        <Route
+          path="/carrito"
+          element={<ItemCount initial={initial} stock={stock} onAdd={onAdd} />}
+        />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
