@@ -7,10 +7,9 @@ import Button from "react-bootstrap/Button";
 import { useContexto, Provider, useState, Contexto } from "react";
 import { useParams } from "react-router-dom";
 
-const ItemDetail = ({prod}) => {
+const ItemDetail = ({id,title,price,pictureUrl,stock,categoria}) => {
 
-  const {id,title,price,pictureUrl} = prod;
-
+  
   const [estado, setEstado] = useState(true);
   const [item, setItem] = useState([]);
   const [cantidad, setCantidad] = useState(0)
@@ -36,23 +35,18 @@ const ItemDetail = ({prod}) => {
     agregarAlCarrito(itemToAdd);
   };
 
-  function onAdd(stock) {
-    console.log("Agregado al carrito");
-    setEstado(false);
-    agregarAlCarrito(cantidad, prod);
-  }
 
   return (
     <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={prod.pictureUrl} />
+      <Card.Img variant="top" src={pictureUrl} />
       <Card.Body>
-        <Card.Title>{prod.title}</Card.Title>
-        <Card.Text>Precio: {prod.price}</Card.Text>
-        <Card.Text>Stock: {prod.stock}</Card.Text>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>Precio: {price}</Card.Text>
+        <Card.Text>Stock: {stock}</Card.Text>
         <Button variant="primary" onClick={handleNavigate}>
           VOLVER
         </Button>
-        <ItemCount stock={5} initial={1} agregarItems={onAdd} />
+        <ItemCount stock={5} initial={1} agregarItems={agregarItems} />
       </Card.Body>
     </Card>
   );
