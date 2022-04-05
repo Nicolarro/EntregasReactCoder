@@ -4,15 +4,15 @@ import { useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import ItemCount from "./ItemCount";
 import Button from "react-bootstrap/Button";
-import { useContexto, Provider, useState, Contexto } from "react";
-import { useParams } from "react-router-dom";
+import { Provider, useState, Contexto } from "react";
+import { useContexto } from "./contexto/miContexto";
 
-const ItemDetail = ({id,title,price,pictureUrl,stock,categoria}) => {
 
-  
+const ItemDetail = ({ id, title, price, pictureUrl, stock, categoria }) => {
+
   const [estado, setEstado] = useState(true);
   const [item, setItem] = useState([]);
-  const [cantidad, setCantidad] = useState(0)
+  const [cantidad, setCantidad] = useState(0);
 
   const { agregarAlCarrito, isInCarrito } = useContexto();
 
@@ -23,7 +23,6 @@ const ItemDetail = ({id,title,price,pictureUrl,stock,categoria}) => {
   };
 
   const agregarItems = (item) => {
-
     const itemToAdd = {
       id,
       title,
@@ -34,7 +33,6 @@ const ItemDetail = ({id,title,price,pictureUrl,stock,categoria}) => {
 
     agregarAlCarrito(itemToAdd);
   };
-
 
   return (
     <Card style={{ width: "18rem" }}>
