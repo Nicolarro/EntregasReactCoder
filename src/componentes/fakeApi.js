@@ -5,6 +5,7 @@ export const listadoProductos = [
     destacados: true,
     categoria: "premium",
     price: 250,
+    stock:50,
     pictureUrl: "https://i.ibb.co/Qf0MtJc/Foto-Cafe-Seleccion.jpg",
   },
   {
@@ -13,6 +14,7 @@ export const listadoProductos = [
     destacados: false,
     categoria: "premium",
     price: 200,
+    stock:50,
     pictureUrl: "https://i.ibb.co/Hh8wZFD/Foto-Cafe-Noir.jpg",
   },
   {
@@ -21,6 +23,7 @@ export const listadoProductos = [
     destacados: true,
     categoria: "clasicos",
     price: 125,
+    stock:50,
     pictureUrl: "https://i.ibb.co/1nPjVMH/Foto-Sensaciones-Suave.png",
   },
   {
@@ -29,6 +32,7 @@ export const listadoProductos = [
     destacados: false,
     categoria: "clasicos",
     price: 150,
+    stock:50,
     pictureUrl: "https://i.ibb.co/nPN102r/Foto-Cafe-Intenso.png",
   },
   {
@@ -37,6 +41,7 @@ export const listadoProductos = [
     destacados: true,
     categoria: "premium",
     price: 200,
+    stock:50,
     pictureUrl: "https://i.ibb.co/GP7C8dr/Foto-Superior.jpg",
   },
 ];

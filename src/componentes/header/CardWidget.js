@@ -1,20 +1,12 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BsFillCartFill } from "react-icons/bs";
 
 const CardWidget = () => {
-
-
-return(
-    
- <div>
-
-<img src="https://i.ibb.co/GQ5NGtb/shopping-cart.png" alt="shopping-cart" height = "50px" width = "50px" border="0"/>
-
- </div>
-
-)
-
-}
+  return (
+    <div>
+      <BsFillCartFill className="" />
+    </div>
+  );
+};
 
 export default CardWidget;

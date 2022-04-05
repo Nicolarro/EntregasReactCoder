@@ -2,6 +2,7 @@ import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Link } from "react-router-dom";
 import { useState } from 'react'
 
 const ItemCount = ({stock, initial, onAdd}) =>{
@@ -49,6 +50,7 @@ const ItemCount = ({stock, initial, onAdd}) =>{
                     <button onClick={restar}> RESTAR</button>
 {                    <ToastContainer />}
                     <button onClick={resetear}> RESETEAR</button>
+                    <Link to={`/carrito`}/>
                     <button onClick={agregarProducto}> AGREGAR AL CARRITO</button>
                     <br/>   
                 </>
