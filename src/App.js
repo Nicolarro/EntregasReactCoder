@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
+  
   const greeting = "Bienvendidos a Tienda Cafe";
 
   const initial = 1;

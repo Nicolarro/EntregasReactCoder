@@ -20,7 +20,7 @@ const ItemListContainer = (props) => {
     setCargando(true);
     getProducts
       .then((res) =>{
-      if (categoria){                                            /* esta categoria es la del param */
+      if (categoria){               /* categoria de la lista */  /* esta categoria es la del param */
       setListaProductos(res.filter((item) => item.categoria === categoria)) 
       } else {
         setListaProductos(res)
