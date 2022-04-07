@@ -41,7 +41,7 @@ const ItemDetail = ({ id, title, price, pictureUrl, stock, categoria }) => {
         <Button variant="primary" onClick={handleNavigate}>
           VOLVER
         </Button >
-        <ItemCount stock={5} initial={1} agregarItems={agregarItems} />
+        <ItemCount stock={stock} initial={1} onAdd={agregarItems} />
       </Card.Body>
     </Card>
   );
