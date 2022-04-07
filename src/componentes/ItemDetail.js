@@ -27,7 +27,7 @@ const ItemDetail = ({ id, title, price, pictureUrl, stock, categoria }) => {
       pictureUrl,
       cantidad,
     };
-console.log(itemToAdd);
+
     agregarAlCarrito(itemToAdd);
   };
 
@@ -40,7 +40,7 @@ console.log(itemToAdd);
         <Card.Text>Stock: {stock}</Card.Text>
         <Button variant="primary" onClick={handleNavigate}>
           VOLVER
-        </Button>
+        </Button >
         <ItemCount stock={5} initial={1} agregarItems={agregarItems} />
       </Card.Body>
     </Card>

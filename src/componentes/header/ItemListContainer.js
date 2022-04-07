@@ -4,7 +4,8 @@ import { ToastContainer, toast } from "react-toastify";
 import ItemList from "../ItemList.js";
 import { useParams } from "react-router-dom";
 import { getProducts } from "../fakeApi.js";
-
+import {collection, getDocs, query, where} from "firebase/firestore";
+import { db } from "../../firebase/config.js";
 
 const ItemListContainer = (props) => {
 
@@ -15,12 +16,12 @@ const ItemListContainer = (props) => {
   const [listaProductos, setListaProductos] = useState([]);
   const [cargando, setCargando] = useState(false);
 
-
-  useEffect(() => {
+/* categoria de la lista */  /* esta categoria es la del param */
+ useEffect(() => {
     setCargando(true);
     getProducts
       .then((res) =>{
-      if (categoria){               /* categoria de la lista */  /* esta categoria es la del param */
+      if (categoria){               
       setListaProductos(res.filter((item) => item.categoria === categoria)) 
       } else {
         setListaProductos(res)
@@ -29,6 +30,25 @@ const ItemListContainer = (props) => {
       .catch((error) => toast.error("Error al cargar los productos"))
       .finally(() => setCargando(false));
   }, [categoria]);
+ 
+
+/*   useEffect(() => {
+    setCargando(true);
+
+    /* armo referencia a la db */
+/* const productsRef= collection(db, "productos")
+
+getDocs(productsRef)
+.then((res) => {
+  const items = res.docs.map((doc) => doc.data())
+  setListaProductos(items)
+})
+.finally(() => {
+  setCargando(false)
+}) */
+
+  }, [categoria]);
+
 
   return (
     <div>
