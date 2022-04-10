@@ -50,8 +50,8 @@ const ItemCount = ({stock, initial, onAdd}) =>{
                     <button onClick={restar}> RESTAR</button>
 {                    <ToastContainer />}
                     <button onClick={resetear}> RESETEAR</button>
-                    <Link to={`/carrito`}/>
-                    <button onClick={agregarProducto}> AGREGAR AL CARRITO</button>
+{/*                     <Link to={`/carrito`}/> */}
+                    <button onClick={()=>agregarProducto(contador)}> AGREGAR AL CARRITO</button>
                     <br/>   
                 </>
             )

@@ -8,10 +8,14 @@ import { useContext, useState } from "react";
 import { CartProvider } from "./contexto/miContexto";
 
 const ItemDetail = ({ id, title, price, pictureUrl, stock, categoria }) => {
-  const [estado, setEstado] = useState(true);
-  const [item, setItem] = useState([]);
+  /*   const [estado, setEstado] = useState(true)
+  const [item, setItem] = useState([]) */
+
+  const [compra, setCompra] = useState(false);
+  const [contador, setContador] = useState(1);
+
   const [cantidad, setCantidad] = useState(0);
-  const { agregarAlCarrito, isInCarrito } = useContext(CartProvider);
+  /*  const { agregarAlCarrito, isInCarrito } = useContext(CartProvider) */
 
   const navigate = useNavigate();
 
@@ -19,16 +23,17 @@ const ItemDetail = ({ id, title, price, pictureUrl, stock, categoria }) => {
     navigate(-1);
   };
 
-  const agregarItems = (item) => {
+  const agregarItems = (contador) => {
     const itemToAdd = {
       id,
       title,
       price,
       pictureUrl,
-      cantidad,
+      cantidad: contador,
     };
 
-    agregarAlCarrito(itemToAdd);
+    console.log("agregaste al carrito:", itemToAdd);
+    setCompra(true);
   };
 
   return (
@@ -40,9 +45,15 @@ const ItemDetail = ({ id, title, price, pictureUrl, stock, categoria }) => {
         <Card.Text>Stock: {stock}</Card.Text>
         <Button variant="primary" onClick={handleNavigate}>
           VOLVER
-        </Button >
-        <ItemCount stock={stock} initial={1} onAdd={agregarItems} />
-      </Card.Body>
+        </Button>
+        {!compra && <ItemCount
+          stock={stock}
+          initial={1}
+          onAdd={agregarItems}
+          contador={contador}
+          setContador={setContador}
+        />
+      </Card.Body> 
     </Card>
   );
 };
