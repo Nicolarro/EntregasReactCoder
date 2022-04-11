@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import ItemCount from "./ItemCount";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
-import { useCarrito, CarritoProvider } from "../contexto/CarritoContexto";
+import { useCarrito, CarritoProvider, CarritoContexto } from "../contexto/CarritoContexto";
 
 
 const ItemDetail = ({prod}) => {
@@ -19,11 +19,14 @@ const ItemDetail = ({prod}) => {
 
   const navigate = useNavigate();
 
-  const agregarAlCarrito = useCarrito();
-
   const handleNavigate = () => {
     navigate(-1);
   };
+
+  const {agregarAlCarrito} = useCarrito()
+
+  console.log(agregarAlCarrito)
+
 
   const agregarItems = (contador) => {
     const itemToAdd = {
@@ -36,9 +39,9 @@ const ItemDetail = ({prod}) => {
     };
 
     console.log("agregaste al carrito:", itemToAdd);
-    setCompra(true);
+    setCompra(true)
 
-  agregarAlCarrito(itemToAdd);
+    agregarAlCarrito(itemToAdd);
   };
 
   return (

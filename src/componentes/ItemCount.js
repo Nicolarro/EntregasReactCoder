@@ -25,7 +25,6 @@ const ItemCount = ({stock, initial, contador, setContador, onAdd}) =>{
 
             const resetear = () => {
                 setContador(0)
-
             }
 
         return(
