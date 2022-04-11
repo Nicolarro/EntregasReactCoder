@@ -8,7 +8,7 @@ import { Navigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {CarritoProvider, useCarrito} from "../src/contexto/CarritoContext";
+import {CarritoProvider} from "../src/contexto/CarritoContexto";
 
 function App() {
   const greeting = "Bienvendidos a Tienda Cafe";

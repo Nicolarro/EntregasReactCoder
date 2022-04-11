@@ -5,27 +5,21 @@ import Card from "react-bootstrap/Card";
 import ItemCount from "./ItemCount";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
-/* import { CartProvider } from "./contexto/miContexto"; */
+import { useCarrito, CarritoProvider } from "../contexto/CarritoContexto";
+
 
 const ItemDetail = ({prod}) => {
 
-  /*   const [estado, setEstado] = useState(true)
-  const [item, setItem] = useState([]) */
-
-  console.log(prod)
-
   const {id, title, price, pictureUrl, stock, categoria} = prod
 
+
   const [compra, setCompra] = useState(false);
-  const [contador, setContador] = useState(1);
+  const [contador, setContador] = useState(0);
 
-  console.log(contador)
-
-/*   const [cantidad, setCantidad] = useState(0); */
-  
-  /*  const { agregarAlCarrito, isInCarrito } = useContext(CartProvider) */
 
   const navigate = useNavigate();
+
+  const agregarAlCarrito = useCarrito();
 
   const handleNavigate = () => {
     navigate(-1);
@@ -43,6 +37,8 @@ const ItemDetail = ({prod}) => {
 
     console.log("agregaste al carrito:", itemToAdd);
     setCompra(true);
+
+  agregarAlCarrito(itemToAdd);
   };
 
   return (
@@ -60,8 +56,8 @@ const ItemDetail = ({prod}) => {
         {!compra && (
           <ItemCount
             stock={stock}
-            initial={1}
-            agregarItems={agregarItems}
+            initial={0}
+            onAdd={agregarItems}
             contador={contador}
             setContador={setContador}
           />

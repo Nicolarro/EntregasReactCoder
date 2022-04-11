@@ -1,11 +1,10 @@
 import React from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-/* import { Link } from "react-router-dom"; */
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-const ItemCount = ({stock, initial, contador, setContador, agregarItems}) =>{
+const ItemCount = ({stock, initial, contador, setContador, onAdd}) =>{
 
 
     const navegarProductos = useNavigate();
@@ -16,7 +15,6 @@ const ItemCount = ({stock, initial, contador, setContador, agregarItems}) =>{
 
     const sumar = () =>{
          (contador < stock) && setContador(contador + 1)
-         console.log(contador)
         }
 
 
@@ -30,12 +28,6 @@ const ItemCount = ({stock, initial, contador, setContador, agregarItems}) =>{
 
             }
 
-/*             const agregarProducto = (contador) => {
-                console.log(contador)
-                agregarItems(contador,stock)
-                setContador(initial)
-            }
- */
         return(
                 <>   
                     <br/>
@@ -49,7 +41,7 @@ const ItemCount = ({stock, initial, contador, setContador, agregarItems}) =>{
                     <button onClick={restar}> RESTAR</button>
                     <br/>
                     <button onClick={resetear}> RESETEAR</button>
-                    <button onClick={()=>agregarItems(contador)} disabled={contador ===0}> AGREGAR AL CARRITO</button>
+                    <button onClick={()=>onAdd(contador)} disabled={contador ===0}> AGREGAR AL CARRITO</button>
                     <button onClick={handleNavigate}> SEGUIR COMPRANDO</button>
                     <br/>   
                 </>

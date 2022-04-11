@@ -7,7 +7,7 @@ import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 
 
-const ItemDetailContainer = (prop) => {
+const ItemDetailContainer = (props) => {
 
 const [prod, setProd] = useState({});
 const [loading,setLoading] = useState(false)
@@ -34,7 +34,6 @@ return (
 
 )
 }
-
 
 export default ItemDetailContainer;
 

@@ -1,43 +1,36 @@
 import React from "react";
 import { createContext, useContext, useState } from "react";
-import { useParams } from "react-router-dom";
-
-
 
 export const CarritoContexto = createContext([]);
 
 export const CarritoProvider = ({ children }) => {
 
-  const {id} = useParams()
 
   const [carrito, setCarrito] = useState([]);
 
   const agregarAlCarrito = (producto) => {
 
-    console.log("Soy el Provider");
-    console.log( producto);
     setCarrito([...carrito, producto]);
-
-  };
+ 
+   };
+ 
 
   const carritoCantidad = () => {   //acumulador
     return carrito.reduce((acc, prod) => acc += prod.cantidad, 0);
   };
 
 
-  const borrarDelCarrito = (item) => {
-    const nuevo_carrito = setCarrito(
-      carrito.filter((e) => e.item.id !== id)
+  const borrarItemCarrito = (item) => { 
+    const nuevo_carrito = setCarrito( carrito.filter((prod) => prod.id !== item.id)
     )
     console.log(nuevo_carrito);
   };
 
-  
+
 
   const carritoTotal = () => {
     return carrito.reduce(
-      (acc, prod) => (acc += prod.price * prod.cantidad),
-      0
+      (acc, prod) => acc += prod.price * prod.cantidad,0
     );
   };
 
@@ -47,7 +40,7 @@ export const CarritoProvider = ({ children }) => {
 
 
   const estaEnCarrito = (id) => {
-    return carrito.find((producto) => producto.id === id);
+    return carrito.find((prod) => prod.id === id);
   };
 
   return (
@@ -59,7 +52,7 @@ export const CarritoProvider = ({ children }) => {
         carritoCantidad,
         carritoTotal,
         limpiarCarrito,
-        borrarDelCarrito,
+        borrarItemCarrito,
       }}
     >
       {children}
