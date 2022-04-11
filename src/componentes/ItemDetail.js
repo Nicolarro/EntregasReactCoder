@@ -25,8 +25,6 @@ const ItemDetail = ({prod}) => {
 
   const {agregarAlCarrito} = useCarrito()
 
-  console.log(agregarAlCarrito)
-
 
   const agregarItems = (contador) => {
     const itemToAdd = {

@@ -8,6 +8,8 @@ export const CarritoProvider = ({ children }) => {
 
   const [carrito, setCarrito] = useState([]);
 
+  console.log(carrito)
+
   const agregarAlCarrito = (producto) => {
 
     setCarrito([...carrito, producto]);
@@ -21,9 +23,9 @@ export const CarritoProvider = ({ children }) => {
 
 
   const borrarItemCarrito = (item) => { 
-    const nuevo_carrito = setCarrito( carrito.filter((prod) => prod.id !== item.id)
+   setCarrito( carrito.filter((prod) => prod.id !== item.id)
     )
-    console.log(nuevo_carrito);
+
   };
 
 
@@ -41,6 +43,8 @@ export const CarritoProvider = ({ children }) => {
 
   const estaEnCarrito = (id) => {
     return carrito.find((prod) => prod.id === id);
+
+
   };
 
   return (
@@ -62,4 +66,4 @@ export const CarritoProvider = ({ children }) => {
 
 export default CarritoProvider;
 
-export const useCarrito = () => {useContext(CarritoContexto)} //para no hacer el useContext en cada componente
+export const useCarrito = () => useContext(CarritoContexto); //para no hacer el useContext en cada componente
