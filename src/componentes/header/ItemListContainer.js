@@ -32,24 +32,6 @@ const ItemListContainer = (props) => {
   }, [categoria]);
  
 
-/*   useEffect(() => {
-    setCargando(true);
-
-    /* armo referencia a la db */
-/* const productsRef= collection(db, "productos")
-
-getDocs(productsRef)
-.then((res) => {
-  const items = res.docs.map((doc) => doc.data())
-  setListaProductos(items)
-})
-.finally(() => {
-  setCargando(false)
-}) */
-
-/*   }, [categoria]);
- */
-
   return (
     <div>
       <br />

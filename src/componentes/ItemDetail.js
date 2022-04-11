@@ -7,14 +7,20 @@ import Button from "react-bootstrap/Button";
 import { useState } from "react";
 /* import { CartProvider } from "./contexto/miContexto"; */
 
-const ItemDetail = ({ id, title, price, pictureUrl, stock, categoria }) => {
+const ItemDetail = (prod) => {
+
   /*   const [estado, setEstado] = useState(true)
   const [item, setItem] = useState([]) */
+
+  console.log(prod)
+
+  const {id, title, price, pictureUrl, stock, categoria} = prod
 
   const [compra, setCompra] = useState(false);
   const [contador, setContador] = useState(1);
 
   const [cantidad, setCantidad] = useState(0);
+  
   /*  const { agregarAlCarrito, isInCarrito } = useContext(CartProvider) */
 
   const navigate = useNavigate();
@@ -29,6 +35,7 @@ const ItemDetail = ({ id, title, price, pictureUrl, stock, categoria }) => {
       title,
       price,
       pictureUrl,
+      categoria,
       cantidad: contador,
     };
 
@@ -44,7 +51,7 @@ const ItemDetail = ({ id, title, price, pictureUrl, stock, categoria }) => {
         <Card.Text>Precio: {price}</Card.Text>
         <Card.Text>Stock: {stock}</Card.Text>
         <Button variant="primary" onClick={handleNavigate}>
-          VOLVER
+          SEGUIR COMPRANDO
         </Button>
         {!compra && <ItemCount
           stock={stock}

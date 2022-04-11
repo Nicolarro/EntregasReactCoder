@@ -17,7 +17,7 @@ const [loading,setLoading] = useState(false)
 useEffect(()=>{
     setLoading(true)
     getProducts
-    .then((res) => setProd(res.find((item) => item.id === id)))
+    .then((res) => setProd(res.find((prod) => prod.id === id)))
     .catch((error) => console.log(error))
     .finally(() => setLoading(false))
 }, [id])
