@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import { useState } from "react";
 /* import { CartProvider } from "./contexto/miContexto"; */
 
-const ItemDetail = (prod) => {
+const ItemDetail = ({prod}) => {
 
   /*   const [estado, setEstado] = useState(true)
   const [item, setItem] = useState([]) */
@@ -53,6 +53,8 @@ const ItemDetail = (prod) => {
         <Button variant="primary" onClick={handleNavigate}>
           SEGUIR COMPRANDO
         </Button>
+        <br />
+        <br />
         {!compra && <ItemCount
           stock={stock}
           initial={1}

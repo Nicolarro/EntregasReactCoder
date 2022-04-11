@@ -10,6 +10,12 @@ const ItemCount = ({stock, initial, onAdd}) =>{
 
     let [contador, setContador] = useState(initial)
 
+    const navegarProductos = useNavigate();
+
+    const handleNavigate = () => {
+        navegarProductos(-1)
+    }
+
     const sumar = () =>{
         if (contador === stock){
             toast("No hay mas stock")
@@ -45,15 +51,19 @@ const ItemCount = ({stock, initial, onAdd}) =>{
 
             return (
                 <>   
-                    <p>Contador Actual:{contador}</p>
+                    <br/>
+                    <br/>
+                    <h2>CARRITO DE COMPRAS</h2>
+                    <p>Cantidad Agregada:{contador}</p>
                     <button onClick={sumar}> SUMAR</button>
                     <ToastContainer />
                     <button onClick={restar}> RESTAR</button>
 {                    <ToastContainer />}
                     <button onClick={resetear}> RESETEAR</button>
-{/*                     <Link to={`/carrito`}/> */}
+
                     <button onClick={()=>agregarProducto(contador)}> AGREGAR AL CARRITO</button>
-                    
+                    <button onClick={handleNavigate}> VOLVER</button>
+
 
                     <br/>   
                 </>
