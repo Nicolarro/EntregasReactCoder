@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import ItemCount from "./ItemCount";
 import Button from "react-bootstrap/Button";
-import { useContext, useState } from "react";
-import { CartProvider } from "./contexto/miContexto";
+import { useState } from "react";
+/* import { CartProvider } from "./contexto/miContexto"; */
 
 const ItemDetail = ({ id, title, price, pictureUrl, stock, categoria }) => {
   /*   const [estado, setEstado] = useState(true)
@@ -52,8 +52,11 @@ const ItemDetail = ({ id, title, price, pictureUrl, stock, categoria }) => {
           onAdd={agregarItems}
           contador={contador}
           setContador={setContador}
-        />
+        />}
+
+        {compra && <Button variant="secondary"onClick={()=>navigate('/carrito')}> IR AL CARRITO</Button>}
       </Card.Body> 
+
     </Card>
   );
 };
