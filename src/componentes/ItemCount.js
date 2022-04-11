@@ -1,14 +1,12 @@
 import React from "react";
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Link } from "react-router-dom";
+/* import { Link } from "react-router-dom"; */
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-const ItemCount = ({stock, initial, onAdd}) =>{
+const ItemCount = ({stock, initial, contador, setContador, agregarItems}) =>{
 
-    let [contador, setContador] = useState(initial)
 
     const navegarProductos = useNavigate();
 
@@ -17,54 +15,42 @@ const ItemCount = ({stock, initial, onAdd}) =>{
     }
 
     const sumar = () =>{
-        if (contador === stock){
-            toast("No hay mas stock")
-            return
+         (contador < stock) && setContador(contador + 1)
+         console.log(contador)
         }
-        else
-        {
-            setContador(contador +1 )
-            console.log(contador)
-        }
-    }
+
 
     const restar = () => {
-                if(contador === 0){
-                    toast("La cantidad a comprar no puede ser menor a 1")
-                    return
+          (contador > 0 && setContador(contador - 1))
+          console.log(contador)
                 }
-                else
-                {
-                setContador(contador - 1)}
-            }
 
             const resetear = () => {
                 setContador(0)
 
             }
 
-            const agregarProducto = () => {
+/*             const agregarProducto = (contador) => {
                 console.log(contador)
-                onAdd(contador,stock)
+                agregarItems(contador,stock)
                 setContador(initial)
             }
-
-            return (
+ */
+        return(
                 <>   
                     <br/>
                     <br/>
                     <h2>CARRITO DE COMPRAS</h2>
                     <p>Cantidad Agregada:{contador}</p>
-                    <button onClick={sumar}> SUMAR</button>
-                    <ToastContainer />
+                    <button onClick={sumar}
+                    disabled={contador === stock}
+                    > SUMAR</button>
+                    <br/>
                     <button onClick={restar}> RESTAR</button>
-{                    <ToastContainer />}
+                    <br/>
                     <button onClick={resetear}> RESETEAR</button>
-
-                    <button onClick={()=>agregarProducto(contador)}> AGREGAR AL CARRITO</button>
-                    <button onClick={handleNavigate}> VOLVER</button>
-
-
+                    <button onClick={()=>agregarItems(contador)} disabled={contador ===0}> AGREGAR AL CARRITO</button>
+                    <button onClick={handleNavigate}> SEGUIR COMPRANDO</button>
                     <br/>   
                 </>
             )

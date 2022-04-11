@@ -19,7 +19,9 @@ const ItemDetail = ({prod}) => {
   const [compra, setCompra] = useState(false);
   const [contador, setContador] = useState(1);
 
-  const [cantidad, setCantidad] = useState(0);
+  console.log(contador)
+
+/*   const [cantidad, setCantidad] = useState(0); */
   
   /*  const { agregarAlCarrito, isInCarrito } = useContext(CartProvider) */
 
@@ -51,21 +53,28 @@ const ItemDetail = ({prod}) => {
         <Card.Text>Precio: {price}</Card.Text>
         <Card.Text>Stock: {stock}</Card.Text>
         <Button variant="primary" onClick={handleNavigate}>
-          SEGUIR COMPRANDO
+          VOLVER
         </Button>
         <br />
         <br />
-        {!compra && <ItemCount
-          stock={stock}
-          initial={1}
-          onAdd={agregarItems}
-          contador={contador}
-          setContador={setContador}
-        />}
+        {!compra && (
+          <ItemCount
+            stock={stock}
+            initial={1}
+            agregarItems={agregarItems}
+            contador={contador}
+            setContador={setContador}
+          />
+        )}
 
-        {compra && <Button variant="secondary"onClick={()=>navigate('/carrito')}> IR AL CARRITO</Button>}
-      </Card.Body> 
+        {compra && (
+          <Button variant="secondary" onClick={() => navigate("/carrito")}>
+            {" "}
+            IR AL CARRITO
+          </Button>
 
+        )}
+      </Card.Body>
     </Card>
   );
 };
