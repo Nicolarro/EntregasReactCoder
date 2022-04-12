@@ -5,6 +5,8 @@ import {getProducts} from "../componentes/fakeApi.js";
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
+import { db } from "../../firebase/config"
+import { doc, getDoc } from "firebase/firestore"
 
 
 const ItemDetailContainer = (props) => {
@@ -21,6 +23,20 @@ useEffect(()=>{
     .catch((error) => console.log(error))
     .finally(() => setLoading(false))
 }, [id])
+
+/* useEffect(() => {
+    setLoading(true)
+
+    const docRef = doc(db, "productos", itemId)
+    getDoc(docRef)
+        .then(doc => {
+            setItem( {id: doc.id, ...doc.data()} )
+        })
+        .finally(() => {
+            setLoading(false)
+        })
+
+}, [itemId]) */
 
 
 return (
