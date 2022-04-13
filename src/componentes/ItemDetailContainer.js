@@ -5,7 +5,7 @@ import {getProducts} from "../componentes/fakeApi.js";
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
-import { db } from "../../firebase/config"
+import { db } from "../firebase/config.js";
 import { doc, getDoc } from "firebase/firestore"
 
 

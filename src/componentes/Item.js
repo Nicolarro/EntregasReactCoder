@@ -14,7 +14,8 @@ const Item = ({ producto }) => {
       <Card.Img variant="top" src={producto.pictureUrl} className="img-fluid" />
       <Card.Body>
         <Card.Title> Producto: {producto.title}</Card.Title>
-        <Card.Text> Precio: {producto.price}</Card.Text>           {/* le paso una funcion anonima cuando quiero pasarle un parametro al evento */}
+        <Card.Text> Precio: {producto.price}</Card.Text>  
+        <hr/>         {/* le paso una funcion anonima cuando quiero pasarle un parametro al evento */}
       <Button variant="primary" onClick={()=>navegar(`/detalle/${producto.id}`)}>Ver Detalle</Button> 
       </Card.Body>
     </Card>

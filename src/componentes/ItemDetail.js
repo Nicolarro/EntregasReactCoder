@@ -43,8 +43,10 @@ const ItemDetail = ({prod}) => {
   };
 
   return (
+
     <Card style={{ width: "18rem" }}>
       <Card.Img variant="top" src={pictureUrl} />
+      <hr/>
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>Precio: {price}</Card.Text>

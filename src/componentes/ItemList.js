@@ -6,8 +6,6 @@ import Item from "./Item.js";
 
 const ItemList = ({listaProductos}) =>{
 
-        console.log(listaProductos)
-
     return(
     
             <>

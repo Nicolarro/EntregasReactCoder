@@ -3,10 +3,9 @@ import "./App.css";
 import Navbar from "./componentes/header/Navbar";
 import ItemListContainer from "./componentes/header/ItemListContainer";
 import ItemDetailContainer from "./componentes/ItemDetailContainer";
-import ItemCount from "./componentes/ItemCount";
+import Carrito from "./componentes/Carrito";
 import { Navigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import { toast } from "react-toastify";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {CarritoProvider} from "../src/contexto/CarritoContexto";
 
@@ -14,17 +13,18 @@ function App()
 {
   const greeting = "Bienvendidos a Tienda Cafe";
 
-  const initial = 1;
+/*   const initial = 1;
   const stock = 10;
   const onAdd = (contador) => {
     toast(contador + " PRODUCTOS AGREGADOS AL CARRITO");
-  };
+  }; */
 
   const links = [
     { href: "/", name: "HOME", id: 1 },
     { href: "/productos", name: "PRODUCTOS", id: 2 },
     { href: "/categoria/clasicos", name: "CLASICOS", id: 3 },
     { href: "/categoria/premium", name: "PREMIUM", id: 4 },
+
   ];
 
   return (
@@ -46,7 +46,7 @@ function App()
           <Route
             path="/carrito"
             element={
-              <ItemCount initial={initial} stock={stock} onAdd={onAdd} />
+              <Carrito/>
             }
           />
           <Route path="*" element={<Navigate to="/" />} />

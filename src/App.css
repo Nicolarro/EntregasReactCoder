@@ -59,4 +59,8 @@ p {
           justify-content: center;
   font-size: 1.5rem;
 }
-/*# sourceMappingURL=app.css.map */
+
+.widgetEstilo {
+  margin: 0.5rem;
+}
+/*# sourceMappingURL=App.css.map */

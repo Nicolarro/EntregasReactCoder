@@ -1,7 +1,6 @@
 import React from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 const ItemCount = ({stock, initial, contador, setContador, onAdd}) =>{
@@ -31,6 +30,7 @@ const ItemCount = ({stock, initial, contador, setContador, onAdd}) =>{
                 <>   
                     <br/>
                     <br/>
+                    <hr/>
                     <h2>CARRITO DE COMPRAS</h2>
                     <p>Cantidad Agregada:{contador}</p>
                     <button onClick={sumar}
