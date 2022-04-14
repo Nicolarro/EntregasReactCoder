@@ -7,13 +7,12 @@ import Carrito from "./componentes/Carrito";
 import { Navigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {CarritoProvider} from "../src/contexto/CarritoContexto";
+import { CarritoProvider } from "../src/contexto/CarritoContexto";
 
-function App() 
-{
+function App() {
   const greeting = "Bienvendidos a Tienda Cafe";
 
-/*   const initial = 1;
+  /*   const initial = 1;
   const stock = 10;
   const onAdd = (contador) => {
     toast(contador + " PRODUCTOS AGREGADOS AL CARRITO");
@@ -24,7 +23,6 @@ function App()
     { href: "/productos", name: "PRODUCTOS", id: 2 },
     { href: "/categoria/clasicos", name: "CLASICOS", id: 3 },
     { href: "/categoria/premium", name: "PREMIUM", id: 4 },
-
   ];
 
   return (
@@ -43,12 +41,7 @@ function App()
             element={<ItemListContainer greeting={greeting} />}
           />
           <Route path="detalle/:id/" element={<ItemDetailContainer />} />
-          <Route
-            path="/carrito"
-            element={
-              <Carrito/>
-            }
-          />
+          <Route path="/carrito" element={<Carrito />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
