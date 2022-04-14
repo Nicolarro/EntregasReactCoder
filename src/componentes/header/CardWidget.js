@@ -10,9 +10,9 @@ const CardWidget = () => {
   return (
 
     <Link to={"/carrito"} className="cart-widget">
+      
       <BsFillCartFill  className = "widgetEstilo"/>
       <span>{carritoCantidad() || ''}</span> 
-
   </Link>
   );
 };

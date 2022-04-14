@@ -1,5 +1,4 @@
 import React from "react";
-/* import { useContext } from "react" */
 import { useCarrito } from "../contexto/CarritoContexto"
 import { BsFillTrashFill } from 'react-icons/bs'
 import { Link } from "react-router-dom"
