@@ -40,11 +40,14 @@ const ItemListContainer = (props) => {
     getDocs(productosRefe)
     .then((res) => {
      const producto =  res.docs.map((doc) => 
-        doc.data())
-        console.log(producto)
-        setListaProductos(producto)
-  })
-    .finally((setCargando(false)));
+        { return{
+          id: doc.id,
+          ...doc.data()}
+         
+
+  }) 
+      .finally(() => setCargando(false));
+       console.log(producto)
     
 },[categoria])
 
@@ -58,6 +61,6 @@ const ItemListContainer = (props) => {
   );
 
 }
-
+  )}
 
 export default ItemListContainer;
