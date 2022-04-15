@@ -16,13 +16,6 @@ const [loading,setLoading] = useState(false)
 
     const {id} = useParams() /* El use params me pasa el objeto como un string */
 
-/* useEffect(()=>{
-    setLoading(true)
-    getProducts
-    .then((res) => setProd(res.find((prod) => prod.id === id)))
-    .catch((error) => console.log(error))
-    .finally(() => setLoading(false))
-}, [id]) */
 
 useEffect(() => {
     setLoading(true)

@@ -21,10 +21,15 @@ const ItemListContainer = (props) => {
 
     const productosRefe = collection(db,"productos");
     
-    getDocs(productosRefe)
+    const qprod = categoria ? query(productosRefe, where("categoria", "==", categoria)) : productosRefe;
+
+    getDocs(qprod)
+    
     .then((res) => {         /* aca retorno un objeto-->por eso pongo parentesis, que tenga una propiedad id, y aparte las propiedades del documento (el spread) */
-     const producto =  res.docs.map((doc) => ({id: doc.id, ...doc.data()}))
-       console.log(producto)
+     
+      const producto =  res.docs.map((doc) => ({id: doc.id, ...doc.data()}))
+
+     console.log(producto)
        setListaProductos(producto)
     })
 
