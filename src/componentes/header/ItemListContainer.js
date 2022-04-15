@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { React, useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
 import ItemList from "../ItemList.js";
 import { useParams } from "react-router-dom";
  import {collection, getDocs, query, where} from "firebase/firestore";
@@ -16,21 +15,6 @@ const ItemListContainer = (props) => {
   const [cargando, setCargando] = useState(false);
 
 
-/*  useEffect(() => {
-    setCargando(true);
-    getProducts
-      .then((res) =>{
-      if (categoria){                   
-      setListaProductos(res.filter((item) => item.categoria === categoria)) 
-      } else {
-        setListaProductos(res)
-      }
-    })
-      .catch((error) => toast.error("Error al cargar los productos"))
-      .finally(() => setCargando(false));
-  }, [categoria]);
- */
-
   useEffect (() => {
 
     setCargando(true);
@@ -38,16 +22,14 @@ const ItemListContainer = (props) => {
     const productosRefe = collection(db,"productos");
     
     getDocs(productosRefe)
-    .then((res) => {
-     const producto =  res.docs.map((doc) => 
-        { return{
-          id: doc.id,
-          ...doc.data()}
-         
-
-  }) 
-      .finally(() => setCargando(false));
+    .then((res) => {         /* aca retorno un objeto-->por eso pongo parentesis, que tenga una propiedad id, y aparte las propiedades del documento (el spread) */
+     const producto =  res.docs.map((doc) => ({id: doc.id, ...doc.data()}))
        console.log(producto)
+       setListaProductos(producto)
+    })
+
+      .finally(() => setCargando(false));
+
     
 },[categoria])
 
@@ -61,6 +43,6 @@ const ItemListContainer = (props) => {
   );
 
 }
-  )}
+
 
 export default ItemListContainer;
