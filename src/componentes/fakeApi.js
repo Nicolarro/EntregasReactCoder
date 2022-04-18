@@ -1,6 +1,6 @@
 export const listadoProductos = [
   {
-    id: '1',
+/*     id: '1', */
     title: "SELECCION",
     destacados: true,
     categoria: "premium",
@@ -9,7 +9,7 @@ export const listadoProductos = [
     pictureUrl: "https://i.ibb.co/Qf0MtJc/Foto-Cafe-Seleccion.jpg",
   },
   {
-    id: '2',
+/*     id: '2', */
     title: "NOIR",
     destacados: false,
     categoria: "premium",
@@ -18,7 +18,7 @@ export const listadoProductos = [
     pictureUrl: "https://i.ibb.co/Hh8wZFD/Foto-Cafe-Noir.jpg",
   },
   {
-    id: '3',
+/*     id: '3', */
     title: "SUAVE",
     destacados: true,
     categoria: "clasicos",
@@ -27,7 +27,7 @@ export const listadoProductos = [
     pictureUrl: "https://i.ibb.co/1nPjVMH/Foto-Sensaciones-Suave.png",
   },
   {
-    id: '4',
+/*     id: '4', */
     title: "INTENSO",
     destacados: false,
     categoria: "clasicos",
@@ -36,7 +36,7 @@ export const listadoProductos = [
     pictureUrl: "https://i.ibb.co/nPN102r/Foto-Cafe-Intenso.png",
   },
   {
-    id: '5',
+/*     id: '5', */
     title: "SUPERIOR",
     destacados: true,
     categoria: "premium",

@@ -10,7 +10,7 @@ import { useCarrito, CarritoProvider, CarritoContexto } from "../contexto/Carrit
 
 const ItemDetail = ({prod}) => {
 
-  const {id, title, price, pictureUrl, stock, categoria} = prod
+const {id, title, price, pictureUrl, stock, categoria} = prod
 
 
   const [compra, setCompra] = useState(false);
@@ -79,3 +79,4 @@ const ItemDetail = ({prod}) => {
 };
 
 export default ItemDetail;
+

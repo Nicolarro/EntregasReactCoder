@@ -25,9 +25,9 @@ const ItemListContainer = (props) => {
 
     getDocs(qprod)
     
-    .then((res) => {         /* aca retorno un objeto-->por eso pongo parentesis, que tenga una propiedad id, y aparte las propiedades del documento (el spread) */
+    .then((snapshot) => {         /* aca retorno un objeto-->por eso pongo parentesis, que tenga una propiedad id, y aparte las propiedades del documento (el spread) */
      
-      const producto =  res.docs.map((doc) => ({id: doc.id, ...doc.data()}))
+      const producto =  snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))
 
      console.log(producto)
        setListaProductos(producto)

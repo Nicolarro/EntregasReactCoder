@@ -28,8 +28,6 @@ export const CarritoProvider = ({ children }) => {
 
   };
 
-
-
   const carritoTotal = () => {
     return carrito.reduce(
       (acc, prod) => acc += prod.price * prod.cantidad,0

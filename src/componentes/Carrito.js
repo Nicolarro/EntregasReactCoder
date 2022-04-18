@@ -2,8 +2,11 @@ import React from "react";
 import { useCarrito } from "../contexto/CarritoContexto"
 import { BsFillTrashFill } from 'react-icons/bs'
 import { Link } from "react-router-dom"
+import {useNavigate} from "react-router-dom";
 
 const Carrito= () => {
+
+  const navigate = useNavigate();
 
   const {carrito, carritoTotal, limpiarCarrito, borrarItemCarrito} = useCarrito()
 
@@ -42,6 +45,8 @@ const Carrito= () => {
                       <h3>TOTAL: ${carritoTotal()}</h3>
             <hr/>
             <button className="btn btn-danger" onClick={limpiarCarrito}>Vaciar carrito</button>
+            <button className="btn btn-btn-btn-success mx-3" onClick={() => navigate(`/checkout`)}>Terminar Compra</button>
+            
 
       </div>
       )

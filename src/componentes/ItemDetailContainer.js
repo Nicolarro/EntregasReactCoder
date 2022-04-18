@@ -1,7 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from "react-bootstrap";
-import {getProducts} from "../componentes/fakeApi.js";
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";

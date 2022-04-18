@@ -4,19 +4,20 @@ import Navbar from "./componentes/header/Navbar";
 import ItemListContainer from "./componentes/header/ItemListContainer";
 import ItemDetailContainer from "./componentes/ItemDetailContainer";
 import Carrito from "./componentes/Carrito";
+import Checkout from "./componentes/Checkout";
 import { Navigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CarritoProvider } from "../src/contexto/CarritoContexto";
+/* import {db} from "./firebase/config";
+import {addDoc, collection} from "firebase/firestore"; */
+
 
 function App() {
+
   const greeting = "Bienvendidos a Tienda Cafe";
 
-  /*   const initial = 1;
-  const stock = 10;
-  const onAdd = (contador) => {
-    toast(contador + " PRODUCTOS AGREGADOS AL CARRITO");
-  }; */
+
 
   const links = [
     { href: "/", name: "HOME", id: 1 },
@@ -42,6 +43,7 @@ function App() {
           />
           <Route path="detalle/:id/" element={<ItemDetailContainer />} />
           <Route path="/carrito" element={<Carrito />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
