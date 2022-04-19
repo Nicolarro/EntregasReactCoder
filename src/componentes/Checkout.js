@@ -21,21 +21,21 @@ const [cart,cartTotal] = useCarrito()
     const handleSubmit = (e) => {
      e.preventDefault()
      console.log()
-    }
-/*         const orden = () => {
-            items:cart,
-            total: cartTotal(),
-            comprador {
+  
+        const orden =  {
+
+          items:cart,
+          total: cartTotal(),
+            comprador : {
               nombre: nombre,
               email: email,
               tel: tel,
-            }
-            
           }
-    }
- */
 
+        
+        }
 
+        console.log(orden)
 
   return (
     <div>
@@ -44,9 +44,9 @@ const [cart,cartTotal] = useCarrito()
     <br />
     <form onSubmit={handleSubmit}>
 
-        <input  className = "form-control my-3"type={'text'}  />
-        <input  className = "form-control my-3"type= {'email'}  />
-        <input  className = "form-control my-3"type= {'tel'}  />
+        <input  className = "form-control my-3" type={'text'}   value = {nombre}/>
+        <input  className = "form-control my-3" type= {'email'}  value = {email} />
+        <input  className = "form-control my-3" type= {'tel'}  value = {tel} />
 
     </form>
 
@@ -55,6 +55,7 @@ const [cart,cartTotal] = useCarrito()
     </div>
     
   )
+}
 }
 
 export default Checkout;
