@@ -1,61 +1,88 @@
-import React from 'react';
-import {useNavigate} from 'react-router-dom';
-import { useState } from 'react';
-import { useContext } from 'react';
-import {useCarrito} from '../contexto/CarritoContexto'
-import ItemList from './ItemList';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useContext } from "react";
+import { useCarrito } from "../contexto/CarritoContexto";
+import { CarritoContexto } from "../contexto/CarritoContexto";
+import ItemList from "./ItemList";
 
-const  Checkout = () => {
-    
-const [nombre , setNombre] = useState("")
+const Checkout = () => {
+  const { carrito, totalCarrito, vaciarCarrito } = useContext(CarritoContexto);
 
-const [cart,cartTotal] = useCarrito()
+  const navigate = useNavigate();
 
+  const handleNavigate = () => {
+    navigate(-1);
+  };
 
-    const navigate = useNavigate();
+  const [values, setValues] = useState({
+    nombre: "",
+    email: "",
+    tel: "",
+  });
 
-        const handleNavigate = () => {
-      navigate(-1);
+  const handleValueChange = (e) => {
+    console.log(e.target.value);
+
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log();
+
+    const orden = {
+      items: carrito,
+      total: totalCarrito(),
+      comprador: {
+        ...values,
+      },
     };
 
-    const handleSubmit = (e) => {
-     e.preventDefault()
-     console.log()
-  
-        const orden =  {
 
-          items:cart,
-          total: cartTotal(),
-            comprador : {
-              nombre: nombre,
-              email: email,
-              tel: tel,
-          }
-
-        
-        }
-
-        console.log(orden)
+    
+    console.log(orden);
+  };
 
   return (
     <div>
-    <br />
-    <h3 className= ""> CHECKOUT </h3>
-    <br />
-    <form onSubmit={handleSubmit}>
+      <br />
+      <h3> CHECKOUT </h3>
+      <br />
+      <form onSubmit={handleSubmit}>
+        <input
+          className="form-control my-3"
+          type={"text"}
+          value={values.nombre}
+          onChange={handleValueChange}
+        />
+        <input
+          className="form-control my-3"
+          type={"email"}
+          value={values.email}
+          onChange={handleValueChange}
+        />
+        <input
+          className="form-control my-3"
+          type={"tel"}
+          value={values.tel}
+          onChange={handleValueChange}
+        />
+      </form>
 
-        <input  className = "form-control my-3" type={'text'}   value = {nombre}/>
-        <input  className = "form-control my-3" type= {'email'}  value = {email} />
-        <input  className = "form-control my-3" type= {'tel'}  value = {tel} />
-
-    </form>
-
-    <button className="btn btn-primary" onClick={{}}> ENVIAR </button>
-    <button className="btn btn-primary" onClick={handleNavigate}> VOLVER </button>
+      <button className="btn btn-primary" type="submit">
+        {" "}
+        ENVIAR{" "}
+      </button>
+      <button className="btn btn-primary" onClick={handleNavigate}>
+        {" "}
+        VOLVER{" "}
+      </button>
     </div>
-    
-  )
-}
-}
+  );
+};
 
 export default Checkout;
