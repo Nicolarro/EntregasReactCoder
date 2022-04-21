@@ -2,12 +2,16 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useContext } from "react";
-import { useCarrito } from "../contexto/CarritoContexto";
 import { CarritoContexto } from "../contexto/CarritoContexto";
-import ItemList from "./ItemList";
+import { Navigate } from "react-router-dom"
+import { generarOrden } from "../../firebase/generarOrden"
+import { ThankYou } from "./ThankYou"
+import { validar } from "./validar"
 
 const Checkout = () => {
   const { carrito, totalCarrito, vaciarCarrito } = useContext(CarritoContexto);
+
+  const [orderId, setOrderId] = useState(null)
 
   const navigate = useNavigate();
 
@@ -31,8 +35,10 @@ const Checkout = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log();
+    e.preventDefault()
+    validar(values) && generarOrden(values, carrito, totalCarrito, setOrderId, vaciarCarrito)
+}
+
 
     const orden = {
       items: carrito,
@@ -40,12 +46,18 @@ const Checkout = () => {
       comprador: {
         ...values,
       },
-    };
+    }
 
 
-    
-    console.log(orden);
-  };
+
+  if (orderId) {
+     return <ThankYou order={orderId}/>
+}
+
+if (carrito.length === 0) {
+    return <Navigate to="/"/>
+}
+
 
   return (
     <div>
@@ -56,30 +68,34 @@ const Checkout = () => {
         <input
           className="form-control my-3"
           type={"text"}
+          placeholder = "Ingresar Nombre"
           value={values.nombre}
           onChange={handleValueChange}
+          autoComplete="off"
         />
         <input
           className="form-control my-3"
           type={"email"}
           value={values.email}
+          placeholder = "Ingresar email"
           onChange={handleValueChange}
+          autoComplete="off"
         />
         <input
           className="form-control my-3"
           type={"tel"}
           value={values.tel}
+          placeholder = "Ingresar Telefono"
           onChange={handleValueChange}
+          autoComplete="off"
         />
       </form>
 
       <button className="btn btn-primary" type="submit">
-        {" "}
-        ENVIAR{" "}
+        ENVIAR
       </button>
       <button className="btn btn-primary" onClick={handleNavigate}>
-        {" "}
-        VOLVER{" "}
+        VOLVER
       </button>
     </div>
   );
