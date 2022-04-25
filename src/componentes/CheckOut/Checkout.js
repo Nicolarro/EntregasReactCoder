@@ -1,19 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { useContext } from "react";
-import CarritoContexto  from "../../contexto/CarritoContexto";
+import { useState, useContext } from "react";
+import {CarritoContexto}  from "../../contexto/CarritoContexto";
 import { Navigate } from "react-router-dom";
 /* import { generarOrden } from "../../firebase/generarOrden"; */
 import { MensajeCompra }  from "../CheckOut/MensajeCompra";
 /* import { validar } from "./Validacion"; */
-import { collection, addDoc, doc, getDoc,updateDoc } from "firebase/firestore";
+import { collection, addDoc, doc, getDoc,updateDoc, Timestamp} from "firebase/firestore";
 import {db} from "../../firebase/config.js";
                   
 const Checkout = () => {
   const { carrito, totalCarrito, vaciarCarrito } = useContext(CarritoContexto);
 
-  const [orderId, setOrderId] = useState(null);
+  const [orderId, setOrderId] = useState(null); 
 
   const navigate = useNavigate();
 
@@ -49,11 +48,13 @@ const Checkout = () => {
       comprador: {
         ...values,
       },
-      fechayHora: TimeStamp(),
+      fechayHora: Timestamp(),
       // segun conrado timestamp.fromDate(new Date()) VERLO //
     };
 
-    const orderDb = collection(db, "orders");
+    const orderDb = collection(db, "ordenes");
+
+    console.log(orderDb)
 
 
     
@@ -63,6 +64,7 @@ const Checkout = () => {
              .then((dbDoc) => {
             if (doc.data().stock >= item.cantidad) {    
                  updateDoc(docRef, {stock: dbDoc.data().stock - item.cantidad})
+                 console.log(item.stock)
              }
             else {
               alert("No hay stock de este item")
