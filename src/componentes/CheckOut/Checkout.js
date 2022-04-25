@@ -2,12 +2,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useContext } from "react";
-import { CarritoContexto } from "../contexto/CarritoContexto";
+import CarritoContexto  from "../../contexto/CarritoContexto";
 import { Navigate } from "react-router-dom";
-import { generarOrden } from "../../firebase/generarOrden";
-import { ThankYou } from "./ThankYou";
-import { validar } from "./validar";
-import { collection, db, addDoc, TimeStamp, doc, getDoc,updateDoc } from "../../firebase/firebase";
+/* import { generarOrden } from "../../firebase/generarOrden"; */
+import { MensajeCompra }  from "../CheckOut/MensajeCompra";
+/* import { validar } from "./Validacion"; */
+import { collection, addDoc, doc, getDoc,updateDoc } from "firebase/firestore";
+import {db} from "../../firebase/config.js";
                   
 const Checkout = () => {
   const { carrito, totalCarrito, vaciarCarrito } = useContext(CarritoContexto);
@@ -37,13 +38,11 @@ const Checkout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    validar(values) &&
-      generarOrden(values, carrito, totalCarrito, setOrderId, vaciarCarrito);
+/*     validar(values) && */
+/*       generarOrden(values, carrito, totalCarrito, setOrderId, vaciarCarrito); */
 
-      console.log(generarOrden)
-    }
-  
-
+/*       console.log(generarOrden) */
+    
     const orden = {
       items: carrito,
       total: totalCarrito(),
@@ -56,20 +55,31 @@ const Checkout = () => {
 
     const orderDb = collection(db, "orders");
 
-    addDoc(orderDb, orden)
-    .then((resp) => {
+
     
      carrito.forEach((item) => {
          const docRef = doc(db, 'productos', item.id)
          getDoc(docRef)
              .then((dbDoc) => {
+            if (doc.data().stock >= item.cantidad) {    
                  updateDoc(docRef, {stock: dbDoc.data().stock - item.cantidad})
-             })
+             }
+            else {
+              alert("No hay stock de este item")
+          }
      })
-    })
+    },
+
+    addDoc(orderDb, orden)
+    .then((doc) => {
+      setOrderId(doc.id);
+      vaciarCarrito()
+  })
+  )
+  };
 
     if (orderId) {
-      return <ThankYou order={orderId} />;
+      return <MensajeCompra order={orderId} />;
     }
 
     if (carrito.length === 0) {
@@ -117,6 +127,5 @@ const Checkout = () => {
       </div>
     );
   };
-
 
 export default Checkout;

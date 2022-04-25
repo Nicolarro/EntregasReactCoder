@@ -4,13 +4,11 @@ import Navbar from "./componentes/header/Navbar";
 import ItemListContainer from "./componentes/header/ItemListContainer";
 import ItemDetailContainer from "./componentes/ItemDetailContainer";
 import Carrito from "./componentes/Carrito";
-import Checkout from "./componentes/Checkout";
+import Checkout from "../src/componentes/CheckOut/Checkout";
 import { Navigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CarritoProvider } from "../src/contexto/CarritoContexto";
-/* import {db} from "./firebase/config";
-import {addDoc, collection} from "firebase/firestore"; */
 
 
 function App() {

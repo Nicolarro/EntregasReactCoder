@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 
-export const ThankYou = ({order}) => {
+export const MensajeCompra = ({order}) => {
 
     return <div className="container my-5">
                 <h2>Gracias por tu compra!</h2>
