@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useState, useContext } from "react";
-import { CarritoContexto } from "../../contexto/CarritoContexto";
+import { useState} from "react";
+import { useCarrito } from "../../contexto/CarritoContexto";
 import { Navigate } from "react-router-dom";
 /* import { generarOrden } from "../../firebase/generarOrden"; */
 import { MensajeCompra } from "../CheckOut/MensajeCompra";
@@ -9,7 +9,7 @@ import { MensajeCompra } from "../CheckOut/MensajeCompra";
 import {
   collection,
   addDoc,
-  doc,
+  doc,  
   getDoc,
   updateDoc,
   Timestamp,
@@ -17,7 +17,7 @@ import {
 import { db } from "../../firebase/config.js";
 
 const Checkout = () => {
-  const { carrito, totalCarrito, vaciarCarrito } = useContext(CarritoContexto);
+  const { carrito, carritoTotal, vaciarCarrito } = useCarrito();
 
   const [orderId, setOrderId] = useState(null);
 
@@ -42,6 +42,7 @@ const Checkout = () => {
     });
   };
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     /*     validar(values) && */
@@ -51,11 +52,11 @@ const Checkout = () => {
 
     const orden = {
       items: carrito,
-      total: totalCarrito(),
+      total: carritoTotal(),
       comprador: {
         ...values,
       },
-      fechayHora: Timestamp(),
+      fechayHora:Timestamp.fromDate(new Date()),
       // segun conrado timestamp.fromDate(new Date()) VERLO //
     };
 
@@ -68,12 +69,12 @@ const Checkout = () => {
         const docRef = doc(db, "productos", item.id);
         getDoc(docRef).then((dbDoc) => {
           if (doc.data().stock >= item.cantidad) {
-            updateDoc(docRef, { stock: dbDoc.data().stock - item.cantidad });
+            updateDoc(docRef, { stock: dbDoc.data().stock - item.cantidad })
             console.log(item.stock);
           } else {
             alert("No hay stock de este item");
           }
-        });
+        })
       },
 
       addDoc(orderDb, orden).then((doc) => {
@@ -100,32 +101,39 @@ const Checkout = () => {
         <input
           className="form-control my-3"
           type={"text"}
+          name='nombre'
           placeholder="Ingresar Nombre"
           value={values.nombre}
           onChange={handleValueChange}
           autoComplete="off"
+          required
         />
         <input
           className="form-control my-3"
           type={"email"}
+           name='email'
           value={values.email}
           placeholder="Ingresar email"
           onChange={handleValueChange}
           autoComplete="off"
+          required
         />
         <input
           className="form-control my-3"
           type={"tel"}
+          name='tel'
           value={values.tel}
           placeholder="Ingresar Telefono"
           onChange={handleValueChange}
           autoComplete="off"
+          required
         />
-      </form>
-
+   
       <button className="btn btn-primary" type="submit">
         ENVIAR
       </button>
+      </form>
+
       <button className="btn btn-primary" onClick={handleNavigate}>
         VOLVER
       </button>

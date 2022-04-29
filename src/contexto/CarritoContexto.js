@@ -34,7 +34,7 @@ export const CarritoProvider = ({ children }) => {
     );
   };
 
-  const limpiarCarrito = () => {
+  const vaciarCarrito = () => {
     setCarrito([]);
   };
 
@@ -53,7 +53,7 @@ export const CarritoProvider = ({ children }) => {
         estaEnCarrito,
         carritoCantidad,
         carritoTotal,
-        limpiarCarrito,
+        vaciarCarrito,
         borrarItemCarrito,
       }}
     >
