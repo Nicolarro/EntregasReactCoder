@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useState} from "react";
+import { useState } from "react";
 import { useCarrito } from "../../contexto/CarritoContexto";
 import { Navigate } from "react-router-dom";
 /* import { generarOrden } from "../../firebase/generarOrden"; */
@@ -9,7 +9,7 @@ import { MensajeCompra } from "../CheckOut/MensajeCompra";
 import {
   collection,
   addDoc,
-  doc,  
+  doc,
   getDoc,
   updateDoc,
   Timestamp,
@@ -42,7 +42,6 @@ const Checkout = () => {
     });
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     /*     validar(values) && */
@@ -56,7 +55,7 @@ const Checkout = () => {
       comprador: {
         ...values,
       },
-      fechayHora:Timestamp.fromDate(new Date()),
+      fechayHora: Timestamp.fromDate(new Date()),
       // segun conrado timestamp.fromDate(new Date()) VERLO //
     };
 
@@ -69,12 +68,12 @@ const Checkout = () => {
         const docRef = doc(db, "productos", item.id);
         getDoc(docRef).then((dbDoc) => {
           if (doc.data().stock >= item.cantidad) {
-            updateDoc(docRef, { stock: dbDoc.data().stock - item.cantidad })
+            updateDoc(docRef, { stock: dbDoc.data().stock - item.cantidad });
             console.log(item.stock);
           } else {
             alert("No hay stock de este item");
           }
-        })
+        });
       },
 
       addDoc(orderDb, orden).then((doc) => {
@@ -101,7 +100,7 @@ const Checkout = () => {
         <input
           className="form-control my-3"
           type={"text"}
-          name='nombre'
+          name="nombre"
           placeholder="Ingresar Nombre"
           value={values.nombre}
           onChange={handleValueChange}
@@ -111,7 +110,7 @@ const Checkout = () => {
         <input
           className="form-control my-3"
           type={"email"}
-           name='email'
+          name="email"
           value={values.email}
           placeholder="Ingresar email"
           onChange={handleValueChange}
@@ -121,17 +120,17 @@ const Checkout = () => {
         <input
           className="form-control my-3"
           type={"tel"}
-          name='tel'
+          name="tel"
           value={values.tel}
           placeholder="Ingresar Telefono"
           onChange={handleValueChange}
           autoComplete="off"
           required
         />
-   
-      <button className="btn btn-primary" type="submit">
-        ENVIAR
-      </button>
+
+        <button className="btn btn-primary" type="submit">
+          ENVIAR
+        </button>
       </form>
 
       <button className="btn btn-primary" onClick={handleNavigate}>
