@@ -14,7 +14,6 @@ const Item = ({ producto }) => {
         <Card.Title> Producto: {producto.title}</Card.Title>
         <Card.Text> Precio: {producto.price}</Card.Text>
         <hr />{" "}
-        {/* le paso una funcion anonima cuando quiero pasarle un parametro al evento */}
         <Button
           variant="primary"
           onClick={() => navegar(`/detalle/${producto.id}`)}

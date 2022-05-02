@@ -4,33 +4,24 @@ import { createContext, useContext, useState } from "react";
 export const CarritoContexto = createContext([]);
 
 export const CarritoProvider = ({ children }) => {
-
-
   const [carrito, setCarrito] = useState([]);
 
- 
-
   const agregarAlCarrito = (producto) => {
-
     setCarrito([...carrito, producto]);
- 
-   };
- 
-
-  const carritoCantidad = () => {   //acumulador
-    return carrito.reduce((acc, prod) => acc += prod.cantidad, 0);
   };
 
+  const carritoCantidad = () => {
+    return carrito.reduce((acc, prod) => (acc += prod.cantidad), 0);
+  };
 
-  const borrarItemCarrito = (item) => { 
-   setCarrito( carrito.filter((prod) => prod.id !== item.id)
-    )
-
+  const borrarItemCarrito = (id) => {
+    setCarrito(carrito.filter((prod) => prod.id !== id));
   };
 
   const carritoTotal = () => {
     return carrito.reduce(
-      (acc, prod) => acc += prod.price * prod.cantidad,0
+      (acc, prod) => (acc += prod.price * prod.cantidad),
+      0
     );
   };
 
@@ -38,11 +29,8 @@ export const CarritoProvider = ({ children }) => {
     setCarrito([]);
   };
 
-
   const estaEnCarrito = (id) => {
     return carrito.find((prod) => prod.id === id);
-
-
   };
 
   return (
@@ -64,4 +52,4 @@ export const CarritoProvider = ({ children }) => {
 
 export default CarritoProvider;
 
-export const useCarrito = () => useContext(CarritoContexto); //para no hacer el useContext en cada componente
+export const useCarrito = () => useContext(CarritoContexto);

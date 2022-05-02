@@ -8,7 +8,7 @@ const Carrito= () => {
 
   const navigate = useNavigate();
 
-  const {carrito, carritoTotal, limpiarCarrito, borrarItemCarrito} = useCarrito()
+  const {carrito, carritoTotal, vaciarCarrito, borrarItemCarrito} = useCarrito()
 
     if (carrito.length === 0) {
 
@@ -44,7 +44,7 @@ const Carrito= () => {
 
                       <h3>TOTAL: ${carritoTotal()}</h3>
             <hr/>
-            <button className="btn btn-danger" onClick={limpiarCarrito}>Vaciar carrito</button>
+            <button className="btn btn-danger" onClick={vaciarCarrito}>Vaciar carrito</button>
             <button className="btn btn-btn-btn-success mx-3" onClick={() => navigate(`/checkout`)}>Terminar Compra</button>
             
 

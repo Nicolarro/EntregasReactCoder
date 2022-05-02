@@ -9,12 +9,17 @@ import { Navigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CarritoProvider } from "../src/contexto/CarritoContexto";
-
+import { ToastContainer } from 'react-toastify';
+import Footer from "./componentes/Footer";
 
 function App() {
 
   const greeting = "Bienvendidos a Tienda Cafe";
 
+  const datosFooter = {
+    copyright: "Todos los Derechos Reservados 2022",
+    autor: "Nicolas Larrosa"
+  }
 
 
   const links = [
@@ -28,7 +33,7 @@ function App() {
     <CarritoProvider>
       <BrowserRouter>
         <Navbar links={links} />
-        <main className="titulo"> ECOMMERCE TIENDA CAFE</main>
+        <main className="titulo"> ECOMMERCE TIENDA CAFE
         <Routes>
           <Route path="/" element={<ItemListContainer greeting={greeting} />} />
           <Route
@@ -44,6 +49,9 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
+      </main>
+      <Footer data={datosFooter} />
+      <ToastContainer autoClose={2000}/>
       </BrowserRouter>
     </CarritoProvider>
   );
