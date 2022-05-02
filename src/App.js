@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CarritoProvider } from "../src/contexto/CarritoContexto";
 import { ToastContainer } from 'react-toastify';
-import Footer from "./componentes/Footer";
+import Footer from "../src/componentes/footer/Footer";
 
 function App() {
 

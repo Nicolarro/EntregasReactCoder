@@ -5,17 +5,17 @@ import Card from "react-bootstrap/Card";
 import ItemCount from "./ItemCount";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
-import { useCarrito, CarritoProvider, CarritoContexto } from "../contexto/CarritoContexto";
+import {
+  useCarrito,
+  CarritoProvider,
+  CarritoContexto,
+} from "../contexto/CarritoContexto";
 
-
-const ItemDetail = ({prod}) => {
-
-const {id, title, price, pictureUrl, stock, categoria} = prod
-
+const ItemDetail = ({ prod }) => {
+  const { id, title, price, pictureUrl, stock, categoria } = prod;
 
   const [compra, setCompra] = useState(false);
   const [contador, setContador] = useState(0);
-
 
   const navigate = useNavigate();
 
@@ -23,8 +23,7 @@ const {id, title, price, pictureUrl, stock, categoria} = prod
     navigate(-1);
   };
 
-  const {agregarAlCarrito} = useCarrito()
-
+  const { agregarAlCarrito } = useCarrito();
 
   const agregarItems = (contador) => {
     const itemToAdd = {
@@ -37,16 +36,15 @@ const {id, title, price, pictureUrl, stock, categoria} = prod
     };
 
     console.log("agregaste al carrito:", itemToAdd);
-    setCompra(true)
+    setCompra(true);
 
     agregarAlCarrito(itemToAdd);
   };
 
   return (
-
     <Card style={{ width: "18rem" }}>
       <Card.Img variant="top" src={pictureUrl} />
-      <hr/>
+      <hr />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>Precio: {price}</Card.Text>
@@ -71,7 +69,6 @@ const {id, title, price, pictureUrl, stock, categoria} = prod
             {" "}
             IR AL CARRITO
           </Button>
-
         )}
       </Card.Body>
     </Card>
@@ -79,4 +76,3 @@ const {id, title, price, pictureUrl, stock, categoria} = prod
 };
 
 export default ItemDetail;
-
