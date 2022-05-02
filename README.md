@@ -1,6 +1,6 @@
 TiendaCafe Web App
 
-E-commerce de venta de cafes de especialidad, de consumo diario y 
+E-commerce de venta de cafes de especialidad y de consumo diario. 
 
 Tecnología principal:
 Proyecto construido con ReactJS, y Bootstrap 5.0 para maquetar ciertos elementos.
