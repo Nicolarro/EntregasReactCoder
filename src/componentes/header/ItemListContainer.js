@@ -24,7 +24,6 @@ const ItemListContainer = (props) => {
 
     getDocs(qprod)
       .then((snapshot) => {
-        /* aca retorno un objeto-->por eso pongo parentesis, que tenga una propiedad id, y aparte las propiedades del documento (el spread) */
 
         const producto = snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -42,6 +41,7 @@ const ItemListContainer = (props) => {
     <div>
       <br />
       <h2> {greeting}</h2>
+       <br />
       {cargando ? (
         <h2> Loading....</h2>
       ) : (

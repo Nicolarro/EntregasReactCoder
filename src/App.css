@@ -132,21 +132,20 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 15px;
 }
 
 .container-btns p {
   margin-bottom: 0;
-  font-size: 1.8rem;
+  font-size: 1rem;
   font-weight: bolder;
-  background-color: #FEC601;
-  padding: 2px 12px;
+  background-color: #CCD5AE;
+  padding: 2px;
 }
 
 .btn-cart {
   border: none;
   padding: 5px 15px;
-  font-size: 1.4rem;
+  font-size: 0.8rem;
 }
 
 .btn-contador {

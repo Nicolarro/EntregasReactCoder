@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useCarrito } from "../../contexto/CarritoContexto";
 import { Navigate } from "react-router-dom";
 import { MensajeCompra } from "../CheckOut/MensajeCompra";
+import swall from 'sweetalert';
 
 import {
   collection,
@@ -33,7 +34,6 @@ const Checkout = () => {
   });
 
   const handleValueChange = (e) => {
-    console.log(e.target.value);
 
     setValues({
       ...values,
@@ -55,7 +55,6 @@ const Checkout = () => {
 
     const orderDb = collection(db, "ordenes");
 
-    console.log(orderDb);
 
     carrito.forEach(
       (item) => {
@@ -65,8 +64,13 @@ const Checkout = () => {
             updateDoc(docRef, { stock: dbDoc.data().stock - item.cantidad });
 
             console.log(item.stock);
-          } else {
-            alert("No hay stock de este item");
+          } 
+            else {
+            swall({title:"Stock Insuficiente",
+            text:"No hay stock de este item",
+            icon:"error",
+            button: "Aceptar",
+            timer: 2000})
           }
         });
       },
@@ -83,6 +87,7 @@ const Checkout = () => {
   }
 
   if (carrito.length === 0) {
+
     return <Navigate to="/" />;
   }
 

@@ -11,8 +11,7 @@ const ItemDetailContainer = (props) => {
   const [prod, setProd] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const { id } =
-    useParams();
+  const { id } = useParams();
   useEffect(() => {
     setLoading(true);
 

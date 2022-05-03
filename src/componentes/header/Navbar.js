@@ -1,10 +1,9 @@
-import { NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CardWidget from "./CardWidget";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Navbar = ({links}) => {
-  
+const Navbar = ({ links }) => {
   return (
     <header id="main-header" className="header">
       <NavLink to="/">
@@ -23,25 +22,19 @@ const Navbar = ({links}) => {
             <NavLink
               key={elemento.id}
               to={elemento.href}
-              className="header--color NavBar--estilo" >
+              className="header--color NavBar--estilo"
+            >
               {" "}
               {elemento.name}
             </NavLink>
           );
         })}
         <NavLink to="/carrito">
-
-          <CardWidget className = "widgetEstilo"/>
+          <CardWidget className="widgetEstilo" />
         </NavLink>
       </nav>
     </header>
   );
-
-}
+};
 
 export default Navbar;
-
-
-
-
-

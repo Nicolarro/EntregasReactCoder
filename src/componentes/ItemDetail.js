@@ -5,11 +5,7 @@ import Card from "react-bootstrap/Card";
 import ItemCount from "./ItemCount";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
-import {
-  useCarrito,
-  CarritoProvider,
-  CarritoContexto,
-} from "../contexto/CarritoContexto";
+import { useCarrito } from "../contexto/CarritoContexto";
 
 const ItemDetail = ({ prod }) => {
   const { id, title, price, pictureUrl, stock, categoria } = prod;
@@ -66,7 +62,6 @@ const ItemDetail = ({ prod }) => {
 
         {compra && (
           <Button variant="secondary" onClick={() => navigate("/carrito")}>
-            {" "}
             IR AL CARRITO
           </Button>
         )}
