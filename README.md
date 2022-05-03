@@ -13,13 +13,13 @@ Este proyecto fue realizado por las siguientes tecnologías
 
 Dependencias
 
-React Router Dom 6.2.1 para navegación.
+React Router Dom 6.2.2 para navegación.
 Firebase a modo de base de datos de productos.
 Bootstrap 5.1.3 obtenido a través de instalación con npm para maquetación de algunos elementos.
-Iconify-react 3.1.0 para insertar iconos.
 
 
 Node.js - Entorno de ejecución para JavaScript
 Express - Librería de Node utilizada en la construccion de la API
+
 
 Desarrollado por Nicolas Larrosa
