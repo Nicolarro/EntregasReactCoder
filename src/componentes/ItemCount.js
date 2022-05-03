@@ -30,14 +30,28 @@ const ItemCount = ({ stock, initial, contador, setContador, onAdd }) => {
       <hr />
       <h2>CARRITO DE COMPRAS</h2>
       <p>Cantidad Agregada:{contador}</p>
-      <button className="btn-cart btn-contador" onClick={sumar} disabled={contador === stock}>
+      <button
+        className="btn-cart btn-contador"
+        onClick={sumar}
+        disabled={contador === stock}
+      >
         SUMAR
       </button>
       <br />
-      <button className="btn-cart btn-contador"  onClick={restar}> RESTAR</button>
+      <button className="btn-cart btn-contador" onClick={restar}>
+        {" "}
+        RESTAR
+      </button>
       <br />
-      <button className="btn-cart btn-contador" onClick={resetear}> RESETEAR</button>
-      <button className="btn-cart btn-agregar" onClick={() => onAdd(contador)} disabled={contador === 0}>
+      <button className="btn-cart btn-contador" onClick={resetear}>
+        {" "}
+        RESETEAR
+      </button>
+      <button
+        className="btn-cart btn-agregar"
+        onClick={() => onAdd(contador)}
+        disabled={contador === 0}
+      >
         AGREGAR AL CARRITO
       </button>
       <button onClick={handleNavigate}> SEGUIR COMPRANDO</button>

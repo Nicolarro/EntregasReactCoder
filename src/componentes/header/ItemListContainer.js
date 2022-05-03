@@ -24,7 +24,6 @@ const ItemListContainer = (props) => {
 
     getDocs(qprod)
       .then((snapshot) => {
-
         const producto = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
@@ -41,7 +40,7 @@ const ItemListContainer = (props) => {
     <div>
       <br />
       <h2> {greeting}</h2>
-       <br />
+      <br />
       {cargando ? (
         <h2> Loading....</h2>
       ) : (

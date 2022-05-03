@@ -5,9 +5,7 @@ import swall from "sweetalert";
 export const CarritoContexto = createContext([]);
 
 export const CarritoProvider = ({ children }) => {
-
   const [carrito, setCarrito] = useState([]);
-
 
   const agregarAlCarrito = (producto) => {
     swall({
@@ -15,13 +13,12 @@ export const CarritoProvider = ({ children }) => {
       text: "Esta por agregar este producto. Quiere continuar?",
       icon: "warning",
       buttons: true,
-    })
-      .then(respuesta=> {
-      if(respuesta){
-        swall({text: "Producto Agregado con exito", icon: "success"});
-    setCarrito([...carrito, producto]);
-  }
-})
+    }).then((respuesta) => {
+      if (respuesta) {
+        swall({ text: "Producto Agregado con exito", icon: "success" });
+        setCarrito([...carrito, producto]);
+      }
+    });
   };
 
   const carritoCantidad = () => {
@@ -34,14 +31,13 @@ export const CarritoProvider = ({ children }) => {
       text: "Esta por borrar este producto. Quiere continuar?",
       icon: "warning",
       buttons: true,
-    })
-    .then(respuesta=> {
-      if(respuesta){
-        swall({text: "Producto Borrado con exito", icon: "success"});
+    }).then((respuesta) => {
+      if (respuesta) {
+        swall({ text: "Producto Borrado con exito", icon: "success" });
         setCarrito(carrito.filter((prod) => prod.id !== id));
       }
-  })
-}
+    });
+  };
 
   const carritoTotal = () => {
     return carrito.reduce(
@@ -50,12 +46,9 @@ export const CarritoProvider = ({ children }) => {
     );
   };
 
-
   const vaciarCarrito = () => {
-    setCarrito([])
-}
-
-  
+    setCarrito([]);
+  };
 
   const estaEnCarrito = (id) => {
     return carrito.find((prod) => prod.id === id);

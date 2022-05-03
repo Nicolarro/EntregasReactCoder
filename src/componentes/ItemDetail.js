@@ -61,7 +61,11 @@ const ItemDetail = ({ prod }) => {
         )}
 
         {compra && (
-          <Button variant="secondary" onClick={() => navigate("/carrito")} className="irCarrito">
+          <Button
+            variant="secondary"
+            onClick={() => navigate("/carrito")}
+            className="irCarrito"
+          >
             IR AL CARRITO
           </Button>
         )}

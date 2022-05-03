@@ -19,8 +19,6 @@ html, body, #root {
   min-height: 100vh;
 }
 
-
-/* DEL HEADER */
 #main-header{
     background-color: #CCD5AE;
     display: flex;
@@ -60,10 +58,6 @@ h2 {
   color: #000;
   font-size: 4rem;
 }
-
-
-/* ------------------------------------------- */
-
 
 a {
   text-decoration: none;
@@ -163,8 +157,6 @@ main {
   margin-bottom: 0;
 }
 
-
-
 .irCarrito {
   background-color: #fff;
   border: 1px solid #FEC601;
@@ -181,28 +173,17 @@ main {
   color: #3b3b3b;
 }
 
-
 .contador-carrito {
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0.5rem;
 }
 
-
-.finalizar-compra {
-  border: none;
-  background-color: green;
-  color: #fff;
-  font-weight: bold;
-  padding: .8rem 1.5rem;
-  font-size: 1.8rem;
-}
-/*  */
 .elementos-carrito {
   flex-direction: column;
   padding: .8rem 1.5rem
 }
-/*  */
+
 .elementos-carrito:nth-of-type(even) {
   background-color: #FEC601;
 }
@@ -243,8 +224,6 @@ footer p a:hover {
   transition: ease .3s;
   border-radius: 50px;
 }
-
-
 
 .formulario {
   display: flex;
