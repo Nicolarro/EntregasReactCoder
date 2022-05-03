@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const Navbar = ({ links }) => {
   return (
-    <header id="main-header" className="header">
+    <header id="main-header" className="header navbar-toggler">
       <NavLink to="/">
         <img
           src="https://i.ibb.co/1RDMJgg/Logo-Index.jpg"

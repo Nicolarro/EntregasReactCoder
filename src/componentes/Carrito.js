@@ -28,7 +28,7 @@ const Carrito = () => {
   }
 
   return (
-    <div className="container my-5">
+    <div className="container my-5 elementos-carrito">
       <h2>Tu compra</h2>
       <hr />
       {carrito.map((item) => (
@@ -38,7 +38,7 @@ const Carrito = () => {
           <h5 className="parrafo-carrito">Precio: ${item.price * item.cantidad}</h5>
           <button
             className="btn btn-danger"
-            onClick={() => borrarItemCarrito(item.id)}
+            onClick={ () => borrarItemCarrito(item.id)}
           >
             <BsFillTrashFill />
           </button>
@@ -48,10 +48,11 @@ const Carrito = () => {
 
       <h3>TOTAL: ${carritoTotal()}</h3>
       <hr />
-      <button className="btn btn-danger" onClick={vaciarCarrito}>
+      <button className="btn btn-danger vaciar" onClick={vaciarCarrito}>
         Vaciar carrito
       </button>
       <button
+        value = "Comprar"
         className="btn btn-btn-btn-success mx-3"
         onClick={
           () => navigate(`/checkout`)}>     

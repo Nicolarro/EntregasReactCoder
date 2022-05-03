@@ -50,18 +50,12 @@ export const CarritoProvider = ({ children }) => {
     );
   };
 
+
   const vaciarCarrito = () => {
-    swall({
-      title: "Borrar Item",
-      text: "Esta por borrar todos los productos. Quiere continuar?",
-      icon: "warning",
-      buttons: true
-    })
-      .then(respuesta=> {
-      if(respuesta){
-        swall({text: "Productos Borrados con exito", icon: "success"})
     setCarrito([])
-  }})};
+}
+
+  
 
   const estaEnCarrito = (id) => {
     return carrito.find((prod) => prod.id === id);

@@ -38,7 +38,7 @@ const ItemDetail = ({ prod }) => {
   };
 
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card style={{ width: "22rem" }} className="card_productos">
       <Card.Img variant="top" src={pictureUrl} />
       <hr />
       <Card.Body>
@@ -61,7 +61,7 @@ const ItemDetail = ({ prod }) => {
         )}
 
         {compra && (
-          <Button variant="secondary" onClick={() => navigate("/carrito")}>
+          <Button variant="secondary" onClick={() => navigate("/carrito")} className="irCarrito">
             IR AL CARRITO
           </Button>
         )}

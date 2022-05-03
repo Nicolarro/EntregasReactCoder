@@ -69,23 +69,6 @@ h2 {
 }
 
 /* ------------------------------------------- */
-@media (min-width: 768px) {
-  header {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    padding-right: 8rem;
-    padding-left: 8rem;
-  }
-}
-
 a {
   text-decoration: none;
 }
@@ -99,11 +82,6 @@ a {
 .navbar-toggler:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
-}
-
-.iconify--emojione {
-  font-size: 3rem;
-  margin: 0 auto;
 }
 
 h2 {
@@ -126,6 +104,8 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -140,11 +120,13 @@ main {
   font-weight: bolder;
   background-color: #CCD5AE;
   padding: 2px;
+  margin: 1rem;
 }
 
 .btn-cart {
-  border: none;
+  border: black;
   padding: 5px 15px;
+  margin: 1rem;
   font-size: 0.8rem;
 }
 
@@ -181,12 +163,6 @@ main {
   font-weight: bolder;
 }
 
-.btn-verMas:hover > a {
-  color: #FEC601;
-  -webkit-transition: ease .2s;
-  transition: ease .2s;
-}
-
 #contenedor_productos {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -216,22 +192,6 @@ main {
   margin-bottom: 0;
 }
 
-.img-producto {
-  height: 250px;
-  width: 300px;
-  margin-bottom: 30px;
-}
-
-.info_producto {
-  text-align: center;
-  font-size: 2rem;
-}
-
-.producto_descripcion {
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
 .irCarrito {
   background-color: #fff;
   border: 1px solid #FEC601;
@@ -249,29 +209,10 @@ main {
   color: #3b3b3b;
 }
 
-.irCarrito:hover > a {
-  color: #FEC601;
-  font-weight: bold;
-}
-
 .contador-carrito {
   font-size: 1.5rem;
   font-weight: bold;
-}
-
-.ir-inicio {
-  text-decoration: none;
-  border: solid 1px #FEC601;
-  width: 40%;
-  margin: 0 auto;
-  padding: .8rem 1.5rem;
-  color: #3b3b3b;
-  font-size: 1.8rem;
-}
-
-.ir-inicio:hover {
-  background-color: #3b3b3b;
-  color: #FEC601;
+  margin: 0.5rem;
 }
 
 .finalizar-compra {
@@ -283,27 +224,18 @@ main {
   font-size: 1.8rem;
 }
 
+/*  */
 .elementos-carrito {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 90vw;
-  gap: 2rem;
   padding: .8rem 1.5rem;
 }
 
+/*  */
 .elementos-carrito:nth-of-type(even) {
   background-color: #FEC601;
-}
-
-@media (min-width: 992px) {
-  .elementos-carrito {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
 }
 
 .parrafo-carrito {
@@ -312,11 +244,6 @@ main {
 
 .parrafo-carrito span {
   font-weight: bold;
-}
-
-.icon-delete {
-  font-size: 2rem;
-  cursor: pointer;
 }
 
 .container-detalle {
@@ -358,22 +285,6 @@ footer p a:hover {
   border-radius: 50px;
 }
 
-@-webkit-keyframes pulse {
-  to {
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
-    opacity: 0.5;
-  }
-}
-
-@keyframes pulse {
-  to {
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
-    opacity: 0.5;
-  }
-}
-
 .formulario {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -401,20 +312,5 @@ footer p a:hover {
 
 textarea {
   height: 15rem;
-}
-
-@media (min-width: 992px) {
-  .formulario input, textarea {
-    width: 30%;
-  }
-}
-
-.vaciar {
-  border: none;
-  background-color: red;
-  color: #fff;
-  font-weight: bold;
-  padding: .2rem 1.5rem;
-  font-size: 1.8rem;
 }
 /*# sourceMappingURL=app.css.map */

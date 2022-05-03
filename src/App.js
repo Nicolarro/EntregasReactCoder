@@ -14,7 +14,7 @@ import { ToastContainer } from "react-toastify";
 
 
 function App() {
-  const greeting = "Bienvendidos a Tienda Cafe";
+  const greeting = "Bienvenidos a Tienda Cafe";
 
   const datosFooter = {
     copyright: "Todos los Derechos Reservados 2022",

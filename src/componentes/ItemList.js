@@ -5,10 +5,12 @@ import Item from "./Item.js";
 
 const ItemList = ({ listaProductos }) => {
   return (
-    <>
-      {listaProductos.map((producto) => (
-        <Item key={producto.id} precio={producto.price} producto={producto} />
-      ))}
+<>
+        <div id="contenedor_productos" className="my-5">
+        {listaProductos.map((producto) => (
+                <Item key={producto.id} precio={producto.price} producto={producto} />
+        ))}
+        </div>
     </>
   );
 };
